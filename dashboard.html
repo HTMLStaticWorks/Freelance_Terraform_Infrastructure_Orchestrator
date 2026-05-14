@@ -22,235 +22,387 @@
             }
         }
     </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body class="bg-white dark:bg-dark text-slate dark:text-gray-300 transition-colors duration-300">
 
     <div id="loader"><div class="loader-spinner"></div></div>
 
+    <!-- Top Settings (Floating) -->
+    <div class="fixed top-6 right-6 z-50 flex gap-4">
+        <button id="theme-toggle" class="w-12 h-12 flex items-center justify-center rounded-full glass bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all shadow-lg">
+            <i class="fas fa-moon dark:hidden text-lg"></i><i class="fas fa-sun hidden dark:inline text-lg"></i>
+        </button>
+        <button id="rtl-toggle" class="w-12 h-12 flex items-center justify-center rounded-full glass bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all text-[10px] font-bold uppercase shadow-lg">
+            RTL
+        </button>
+    </div>
 
-
-    <main class="pt-10 pb-20">
-        <div class="container mx-auto px-6">
-            
-            <!-- Dashboard Header -->
-            <div class="flex justify-between items-center mb-10">
-                <a href="index.html" class="flex items-center space-x-2">
-                    <img src="assets/images/logo.png" alt="TerraStack Logo" class="w-8 h-8">
-                    <span class="text-xl font-bold text-dark dark:text-white tracking-tighter">Terra<span class="text-primary">Stack</span></span>
+    <div class="flex min-h-screen">
+        <!-- Professional Sidebar -->
+        <aside class="hidden lg:flex flex-col w-64 bg-slate dark:bg-[#0b1121] border-r border-white/10 p-6 fixed h-full z-40">
+            <div class="mb-10">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="assets/images/logo.png" alt="TerraStack Logo" class="w-10 h-10">
+                    <span class="text-xl font-bold text-white tracking-tighter">Terra<span class="text-primary">Stack</span></span>
                 </a>
-                <div class="flex gap-4">
-                    <button id="theme-toggle" class="p-2 rounded-full bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all">
-                        <i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline"></i>
-                    </button>
-                    <button id="rtl-toggle" class="p-2 rounded-full bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all text-[10px] font-bold uppercase">
-                        RTL
-                    </button>
+            </div>
+
+            <nav class="flex-grow space-y-2">
+                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4 ml-2">Main Menu</p>
+                <a href="#overview" class="flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary rounded-xl font-bold text-sm">
+                    <i class="fas fa-th-large w-5"></i> Dashboard
+                </a>
+                <a href="#stats" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
+                    <i class="fas fa-cubes w-5"></i> Workspaces
+                </a>
+                <a href="#deployments" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
+                    <i class="fas fa-box w-5"></i> TF Modules
+                </a>
+                <a href="#drift" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
+                    <i class="fas fa-cloud w-5"></i> Cloud Providers
+                </a>
+                <a href="#activity" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
+                    <i class="fas fa-book w-5"></i> Documentation
+                </a>
+                
+                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-10 mb-4 ml-2">System</p>
+                <a href="#backend" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
+                    <i class="fas fa-cog w-5"></i> Settings
+                </a>
+                <a href="index.html" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-red-400 rounded-xl font-medium text-sm transition-all">
+                    <i class="fas fa-sign-out-alt w-5"></i> Logout
+                </a>
+            </nav>
+
+            <div class="mt-auto p-4 bg-primary/5 rounded-2xl border border-primary/10">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+                    <span class="text-[10px] font-bold text-secondary uppercase">API Connected</span>
+                </div>
+                <p class="text-[9px] text-gray-500">v2.4.0-stable | Region: EU-1</p>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="flex-grow lg:ml-64 bg-white dark:bg-dark p-6 lg:p-10 transition-all duration-300">
+            
+            <!-- Dashboard Top Bar -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
+                <div>
+                    <nav class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2">
+                        <a href="index.html" class="hover:text-primary">Home</a>
+                        <i class="fas fa-chevron-right text-[8px]"></i>
+                        <span class="text-primary">Dashboard</span>
+                    </nav>
+                    <h1 id="overview" class="text-3xl font-bold dark:text-white">Control Room</h1>
+                    <p class="text-sm text-gray-500 mt-1">Monitor, orchestrate, and secure your cloud infrastructure.</p>
+                </div>
+                
+                <div class="flex items-center gap-4 bg-slate/5 dark:bg-white/5 p-2 rounded-2xl border border-white/5">
+                    <div class="flex items-center gap-3 px-4 py-2 bg-dark dark:bg-slate/50 rounded-xl border border-white/10 shadow-inner">
+                        <img src="https://i.pravatar.cc/150?u=dev" class="w-8 h-8 rounded-full border border-primary/50">
+                        <div>
+                            <p class="text-xs font-bold dark:text-white">DevOps User</p>
+                            <p class="text-[10px] text-primary">Senior Architect</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- 1. Infrastructure Overview -->
-            <section class="mb-12 reveal">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-                    <div>
-                        <h1 class="text-3xl font-bold mb-2">Infrastructure Overview</h1>
-                        <p class="text-sm text-gray-500">Real-time status of your global resources.</p>
+            <!-- 1. Stats Grid -->
+            <section id="stats" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 reveal">
+                <div class="p-6 glass rounded-2xl border border-white/10 relative overflow-hidden group">
+                    <div class="relative z-10">
+                        <div class="flex justify-between mb-4">
+                            <span class="text-[10px] font-bold uppercase text-gray-500 tracking-widest">Environments</span>
+                            <div class="w-8 h-8 bg-primary/10 text-primary rounded-lg flex items-center justify-center"><i class="fas fa-layer-group"></i></div>
+                        </div>
+                        <p class="text-4xl font-bold">12</p>
+                        <div class="flex items-center gap-2 mt-4">
+                            <span class="text-[10px] px-2 py-0.5 bg-secondary/10 text-secondary rounded-full">+2 new</span>
+                            <span class="text-[10px] text-gray-500">since last week</span>
+                        </div>
                     </div>
-                    <div class="flex gap-2">
-                        <button class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-bold flex items-center gap-2"><i class="fas fa-plus"></i> New Deployment</button>
-                        <button class="px-4 py-2 glass rounded-lg text-sm font-bold"><i class="fas fa-sync-alt"></i></button>
+                    <div class="absolute -right-4 -bottom-4 text-primary/5 text-6xl rotate-12 group-hover:rotate-0 transition-transform duration-500">
+                        <i class="fas fa-layer-group"></i>
                     </div>
                 </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="p-6 glass rounded-2xl border border-white/10">
+
+                <div class="p-6 glass rounded-2xl border border-white/10 relative overflow-hidden group">
+                    <div class="relative z-10">
                         <div class="flex justify-between mb-4">
-                            <span class="text-xs font-bold uppercase opacity-60">Active Environments</span>
-                            <i class="fas fa-layer-group text-primary"></i>
+                            <span class="text-[10px] font-bold uppercase text-gray-500 tracking-widest">Active Runs</span>
+                            <div class="w-8 h-8 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center"><i class="fas fa-rocket"></i></div>
                         </div>
-                        <p class="text-3xl font-bold">12</p>
-                        <p class="text-[10px] text-secondary font-bold mt-2"><i class="fas fa-caret-up"></i> +2 this month</p>
-                    </div>
-                    <div class="p-6 glass rounded-2xl border border-white/10">
-                        <div class="flex justify-between mb-4">
-                            <span class="text-xs font-bold uppercase opacity-60">Running Deployments</span>
-                            <i class="fas fa-rocket text-secondary"></i>
-                        </div>
-                        <p class="text-3xl font-bold">04</p>
-                        <p class="text-[10px] text-gray-500 font-bold mt-2">Active now: Production VPC</p>
-                    </div>
-                    <div class="p-6 glass rounded-2xl border border-white/10">
-                        <div class="flex justify-between mb-4">
-                            <span class="text-xs font-bold uppercase opacity-60">Provider Health</span>
-                            <i class="fas fa-check-circle text-emerald-500"></i>
-                        </div>
-                        <p class="text-3xl font-bold">100%</p>
-                        <div class="flex gap-1 mt-2">
-                            <div class="w-3 h-3 bg-orange-500 rounded-sm"></div>
-                            <div class="w-3 h-3 bg-blue-500 rounded-sm"></div>
-                            <div class="w-3 h-3 bg-red-500 rounded-sm"></div>
+                        <p class="text-4xl font-bold">04</p>
+                        <div class="flex items-center gap-2 mt-4 text-[10px]">
+                            <span class="w-2 h-2 bg-secondary rounded-full animate-ping"></span>
+                            <span class="text-secondary font-bold">Production Syncing...</span>
                         </div>
                     </div>
-                    <div class="p-6 glass rounded-2xl border border-white/10">
+                    <div class="absolute -right-4 -bottom-4 text-secondary/5 text-6xl rotate-12 group-hover:rotate-0 transition-transform duration-500">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                </div>
+
+                <div class="p-6 glass rounded-2xl border border-white/10 relative overflow-hidden group">
+                    <div class="relative z-10">
                         <div class="flex justify-between mb-4">
-                            <span class="text-xs font-bold uppercase opacity-60">Monthly Cost</span>
-                            <i class="fas fa-wallet text-cyan-500"></i>
+                            <span class="text-[10px] font-bold uppercase text-gray-500 tracking-widest">Success Rate</span>
+                            <div class="w-8 h-8 bg-emerald-500/10 text-emerald-500 rounded-lg flex items-center justify-center"><i class="fas fa-check-circle"></i></div>
                         </div>
-                        <p class="text-3xl font-bold">$1,240</p>
-                        <p class="text-[10px] text-red-400 font-bold mt-2"><i class="fas fa-caret-up"></i> 5% above budget</p>
+                        <p class="text-4xl font-bold">99.8%</p>
+                        <div class="flex gap-1 mt-5">
+                            <div class="flex-grow h-1 bg-emerald-500 rounded-full"></div>
+                            <div class="flex-grow h-1 bg-emerald-500 rounded-full"></div>
+                            <div class="flex-grow h-1 bg-emerald-500 rounded-full"></div>
+                            <div class="flex-grow h-1 bg-emerald-500/20 rounded-full"></div>
+                        </div>
+                    </div>
+                    <div class="absolute -right-4 -bottom-4 text-emerald-500/5 text-6xl rotate-12 group-hover:rotate-0 transition-transform duration-500">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </div>
+
+                <div class="p-6 glass rounded-2xl border border-white/10 relative overflow-hidden group">
+                    <div class="relative z-10">
+                        <div class="flex justify-between mb-4">
+                            <span class="text-[10px] font-bold uppercase text-gray-500 tracking-widest">Monthly Ops</span>
+                            <div class="w-8 h-8 bg-cyan-500/10 text-cyan-500 rounded-lg flex items-center justify-center"><i class="fas fa-wallet"></i></div>
+                        </div>
+                        <p class="text-4xl font-bold">$1,240</p>
+                        <div class="flex items-center gap-2 mt-4 text-[10px]">
+                            <span class="text-red-400 font-bold"><i class="fas fa-arrow-up"></i> 5.2%</span>
+                            <span class="text-gray-500">budget alert active</span>
+                        </div>
+                    </div>
+                    <div class="absolute -right-4 -bottom-4 text-cyan-500/5 text-6xl rotate-12 group-hover:rotate-0 transition-transform duration-500">
+                        <i class="fas fa-wallet"></i>
                     </div>
                 </div>
             </section>
 
-            <!-- 2. Terraform Plan & Apply Reports -->
-            <section class="grid lg:grid-cols-3 gap-8 mb-12 reveal delay-100">
-                <div class="lg:col-span-2 glass rounded-3xl border border-white/10 overflow-hidden">
-                    <div class="px-8 py-6 border-b border-white/10 flex justify-between items-center">
-                        <h3 class="font-bold">Recent Deployment Logs</h3>
-                        <a href="#" class="text-xs text-primary hover:underline">View All</a>
+            <!-- 2. Logs and Plans -->
+            <section id="deployments" class="grid lg:grid-cols-3 gap-8 mb-10 reveal delay-100">
+                <div class="lg:col-span-2 glass rounded-3xl border border-white/10 overflow-hidden flex flex-col shadow-xl shadow-black/20">
+                    <div class="px-8 py-6 border-b border-white/10 flex justify-between items-center bg-white/5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-primary rounded-full"></div>
+                            <h3 class="font-bold">Recent Deployment Logs</h3>
+                        </div>
+                        <button class="text-[10px] font-bold uppercase tracking-widest bg-white/5 px-4 py-2 rounded-lg border border-white/10 hover:bg-white/10 transition-all">Export Logs</button>
                     </div>
-                    <div class="overflow-x-auto">
+                    <div class="overflow-x-auto flex-grow">
                         <table class="w-full text-left text-sm">
-                            <thead class="bg-white/5 text-[10px] uppercase font-bold text-gray-500">
+                            <thead class="bg-white/5 text-[10px] uppercase font-bold text-gray-500 tracking-tighter">
                                 <tr>
-                                    <th class="py-4 px-8">Workspace</th>
-                                    <th class="py-4 px-8">Status</th>
-                                    <th class="py-4 px-8">Changes</th>
-                                    <th class="py-4 px-8">Time</th>
+                                    <th class="py-5 px-8">Workspace</th>
+                                    <th class="py-5 px-8">Status</th>
+                                    <th class="py-5 px-8">Changes</th>
+                                    <th class="py-5 px-8 text-right">Time</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y divide-white/5">
-                                <tr>
-                                    <td class="py-4 px-8 font-bold">prod-vpc-us-east-1</td>
-                                    <td class="py-4 px-8"><span class="px-2 py-1 bg-secondary/20 text-secondary text-[10px] rounded font-bold uppercase">Applied</span></td>
-                                    <td class="py-4 px-8 text-xs text-gray-400">0 add, 1 change, 0 destroy</td>
-                                    <td class="py-4 px-8 text-xs opacity-60">2m ago</td>
+                            <tbody class="divide-y divide-white/5 font-medium">
+                                <tr class="hover:bg-white/5 transition-colors group">
+                                    <td class="py-5 px-8"><div class="flex items-center gap-2"><i class="fab fa-aws text-orange-400"></i> prod-vpc-us-east-1</div></td>
+                                    <td class="py-5 px-8"><span class="px-3 py-1 bg-secondary/10 text-secondary text-[10px] rounded-full font-bold uppercase">Applied</span></td>
+                                    <td class="py-5 px-8 text-xs text-gray-500">0 add, 1 change, 0 destroy</td>
+                                    <td class="py-5 px-8 text-right text-[10px] font-mono text-gray-500">2 min ago</td>
                                 </tr>
-                                <tr>
-                                    <td class="py-4 px-8 font-bold">staging-k8s-cluster</td>
-                                    <td class="py-4 px-8"><span class="px-2 py-1 bg-primary/20 text-primary text-[10px] rounded font-bold uppercase">Planned</span></td>
-                                    <td class="py-4 px-8 text-xs text-gray-400">12 add, 0 change, 0 destroy</td>
-                                    <td class="py-4 px-8 text-xs opacity-60">15m ago</td>
+                                <tr class="hover:bg-white/5 transition-colors group">
+                                    <td class="py-5 px-8"><div class="flex items-center gap-2"><i class="fab fa-microsoft text-blue-400"></i> staging-k8s-cluster</div></td>
+                                    <td class="py-5 px-8"><span class="px-3 py-1 bg-primary/10 text-primary text-[10px] rounded-full font-bold uppercase">Planned</span></td>
+                                    <td class="py-5 px-8 text-xs text-gray-500">12 add, 0 change, 0 destroy</td>
+                                    <td class="py-5 px-8 text-right text-[10px] font-mono text-gray-500">15 min ago</td>
                                 </tr>
-                                <tr>
-                                    <td class="py-4 px-8 font-bold">dev-db-instances</td>
-                                    <td class="py-4 px-8"><span class="px-2 py-1 bg-red-500/20 text-red-500 text-[10px] rounded font-bold uppercase">Failed</span></td>
-                                    <td class="py-4 px-8 text-xs text-red-400">Resource limit reached</td>
-                                    <td class="py-4 px-8 text-xs opacity-60">1h ago</td>
+                                <tr class="hover:bg-white/5 transition-colors group">
+                                    <td class="py-5 px-8"><div class="flex items-center gap-2"><i class="fab fa-google text-red-400"></i> dev-db-instances</div></td>
+                                    <td class="py-5 px-8"><span class="px-3 py-1 bg-red-500/10 text-red-500 text-[10px] rounded-full font-bold uppercase">Failed</span></td>
+                                    <td class="py-5 px-8 text-xs text-red-400 font-bold italic">Resource quota exceeded</td>
+                                    <td class="py-5 px-8 text-right text-[10px] font-mono text-gray-500">1 hour ago</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <div class="glass rounded-3xl border border-white/10 p-8">
-                    <h3 class="font-bold mb-6">Plan Summary</h3>
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between text-xs mb-2"><span>Resources Added</span><span class="font-bold">42</span></div>
-                            <div class="w-full bg-white/5 rounded-full h-1.5"><div class="bg-primary h-1.5 rounded-full w-[60%]"></div></div>
+
+                <div class="glass rounded-3xl border border-white/10 p-8 flex flex-col shadow-xl shadow-black/20 relative">
+                    <h3 class="font-bold mb-8 flex items-center gap-3">
+                        <i class="fas fa-chart-pie text-primary"></i> Resource Distribution
+                    </h3>
+                    
+                    <div class="flex-grow space-y-8 mt-4">
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-xs font-bold uppercase tracking-widest text-gray-500">
+                                <span>Computing (K8s/EC2)</span>
+                                <span>65%</span>
+                            </div>
+                            <div class="w-full bg-white/5 rounded-full h-2 shadow-inner">
+                                <div class="bg-primary h-2 rounded-full w-[65%] shadow-[0_0_10px_rgba(6,182,212,0.5)]"></div>
+                            </div>
                         </div>
-                        <div>
-                            <div class="flex justify-between text-xs mb-2"><span>Resources Changed</span><span class="font-bold">18</span></div>
-                            <div class="w-full bg-white/5 rounded-full h-1.5"><div class="bg-secondary h-1.5 rounded-full w-[30%]"></div></div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-xs font-bold uppercase tracking-widest text-gray-500">
+                                <span>Storage (S3/EBS)</span>
+                                <span>25%</span>
+                            </div>
+                            <div class="w-full bg-white/5 rounded-full h-2 shadow-inner">
+                                <div class="bg-secondary h-2 rounded-full w-[25%] shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
+                            </div>
                         </div>
-                        <div>
-                            <div class="flex justify-between text-xs mb-2"><span>Resources Destroyed</span><span class="font-bold">03</span></div>
-                            <div class="w-full bg-white/5 rounded-full h-1.5"><div class="bg-red-500 h-1.5 rounded-full w-[10%]"></div></div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-xs font-bold uppercase tracking-widest text-gray-500">
+                                <span>Networking (VPC/CDN)</span>
+                                <span>10%</span>
+                            </div>
+                            <div class="w-full bg-white/5 rounded-full h-2 shadow-inner">
+                                <div class="bg-purple-500 h-2 rounded-full w-[10%] shadow-[0_0_10px_rgba(168,85,247,0.5)]"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-10 p-6 bg-primary/10 rounded-2xl border border-primary/20">
-                         <p class="text-xs font-bold text-primary mb-2">NEXT ACTION</p>
-                         <h4 class="font-bold text-sm mb-4">Review staging-k8s-cluster plan</h4>
-                         <button class="w-full py-2 bg-primary text-white rounded-lg text-xs font-bold">Approve Plan</button>
+
+                    <div class="mt-12 p-6 bg-gradient-to-br from-primary/20 to-transparent rounded-2xl border border-primary/20 relative overflow-hidden">
+                        <div class="relative z-10">
+                            <p class="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">Active Plan</p>
+                            <h4 class="font-bold text-sm mb-4">staging-k8s-cluster</h4>
+                            <button class="w-full py-3 bg-primary text-white rounded-xl text-xs font-bold hover:scale-[1.02] transition-transform shadow-lg shadow-primary/20">Review & Approve</button>
+                        </div>
+                        <i class="fas fa-shield-alt absolute -right-4 -bottom-4 text-primary/10 text-6xl"></i>
                     </div>
                 </div>
             </section>
 
-            <!-- 3. Drift Detection Monitoring -->
-            <section class="grid lg:grid-cols-2 gap-8 mb-12 reveal delay-200">
-                <div class="p-8 glass rounded-3xl border border-white/10">
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 bg-red-500/10 text-red-500 rounded-xl flex items-center justify-center text-xl"><i class="fas fa-exclamation-triangle"></i></div>
-                        <div><h3 class="font-bold">Active Drifts</h3><p class="text-xs text-gray-500">Unmanaged changes detected in production.</p></div>
+            <!-- 3. Drift and History -->
+            <section id="drift" class="grid lg:grid-cols-2 gap-8 mb-10 reveal delay-200">
+                <div class="p-8 glass rounded-3xl border border-white/10 shadow-xl">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-red-500/10 text-red-500 rounded-xl flex items-center justify-center text-xl shadow-lg shadow-red-500/10"><i class="fas fa-exclamation-triangle"></i></div>
+                            <div>
+                                <h3 class="font-bold text-lg leading-tight">Critical Drift Detection</h3>
+                                <p class="text-xs text-gray-500 mt-1">Manual changes bypass Terraform workflow.</p>
+                            </div>
+                        </div>
+                        <span class="px-3 py-1 bg-red-500/20 text-red-500 text-[10px] rounded-full font-bold animate-pulse uppercase">2 Drifts</span>
                     </div>
+                    
                     <div class="space-y-4">
-                        <div class="p-4 bg-red-500/5 rounded-xl border border-red-500/10 flex justify-between items-center">
-                            <div><p class="text-sm font-bold">AWS_SECURITY_GROUP: ingress-rules</p><p class="text-[10px] text-gray-500">Detected: 12:45 PM</p></div>
-                            <button class="px-3 py-1 bg-red-500 text-white text-[10px] rounded font-bold">REMEDIATE</button>
+                        <div class="p-5 bg-white/5 hover:bg-white/10 rounded-2xl border border-white/10 transition-all cursor-pointer group">
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+                                    <div>
+                                        <p class="text-sm font-bold group-hover:text-primary transition-colors">AWS_SECURITY_GROUP: ingress-rules</p>
+                                        <p class="text-[10px] text-gray-500 font-mono">ID: sg-08234ae981</p>
+                                    </div>
+                                </div>
+                                <i class="fas fa-chevron-right text-xs opacity-20 group-hover:opacity-100 transition-all group-hover:translate-x-1"></i>
+                            </div>
                         </div>
-                        <div class="p-4 bg-orange-500/5 rounded-xl border border-orange-500/10 flex justify-between items-center">
-                            <div><p class="text-sm font-bold">AZURE_STORAGE_ACCOUNT: logging-data</p><p class="text-[10px] text-gray-500">Detected: 11:20 AM</p></div>
-                            <button class="px-3 py-1 bg-orange-500 text-white text-[10px] rounded font-bold">SYNC</button>
+                        <div class="p-5 bg-white/5 hover:bg-white/10 rounded-2xl border border-white/10 transition-all cursor-pointer group">
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                                    <div>
+                                        <p class="text-sm font-bold group-hover:text-primary transition-colors">AZURE_STORAGE: logging-data</p>
+                                        <p class="text-[10px] text-gray-500 font-mono">ID: st_logs_002</p>
+                                    </div>
+                                </div>
+                                <i class="fas fa-chevron-right text-xs opacity-20 group-hover:opacity-100 transition-all group-hover:translate-x-1"></i>
+                            </div>
                         </div>
                     </div>
+                    <button class="w-full mt-6 py-3 border border-white/10 rounded-xl text-xs font-bold hover:bg-white/5 transition-all">Re-scan Infrastructure</button>
                 </div>
-                <div class="p-8 glass rounded-3xl border border-white/10">
-                    <h3 class="font-bold mb-8">Drift History (Last 7 Days)</h3>
-                    <div class="h-40 flex items-end gap-4 px-4">
-                        <div class="flex-1 bg-white/5 rounded-t-lg h-[20%] relative group">
-                            <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-dark border border-white/10 px-2 py-1 rounded text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">0</div>
-                        </div>
-                        <div class="flex-1 bg-white/5 rounded-t-lg h-[10%]"></div>
-                        <div class="flex-1 bg-red-500/40 rounded-t-lg h-[60%]"></div>
-                        <div class="flex-1 bg-white/5 rounded-t-lg h-[15%]"></div>
-                        <div class="flex-1 bg-orange-500/40 rounded-t-lg h-[40%]"></div>
-                        <div class="flex-1 bg-white/5 rounded-t-lg h-[5%]"></div>
-                        <div class="flex-1 bg-primary rounded-t-lg h-[80%]"></div>
-                    </div>
-                    <div class="flex justify-between mt-4 text-[10px] uppercase font-bold text-gray-500">
-                        <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-                    </div>
-                </div>
-            </section>
 
-            <!-- 4. Team Activity & State Management -->
-            <section class="reveal delay-300">
-                <div class="glass rounded-3xl border border-white/10 overflow-hidden">
-                    <div class="px-8 py-6 border-b border-white/10">
-                        <h3 class="font-bold">Team Workspace Activity</h3>
-                    </div>
-                    <div class="p-8 grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-                        <div class="flex gap-4">
-                            <img src="https://i.pravatar.cc/150?u=1" class="w-10 h-10 rounded-full">
-                            <div>
-                                <p class="text-sm font-bold">Alex Rivera <span class="font-normal text-gray-500">locked</span> prod-backend</p>
-                                <p class="text-[10px] text-gray-500">5 mins ago</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <img src="https://i.pravatar.cc/150?u=2" class="w-10 h-10 rounded-full">
-                            <div>
-                                <p class="text-sm font-bold">Sarah Chen <span class="font-normal text-gray-500">created</span> dev-branch-32</p>
-                                <p class="text-[10px] text-gray-500">22 mins ago</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <img src="https://i.pravatar.cc/150?u=3" class="w-10 h-10 rounded-full">
-                            <div>
-                                <p class="text-sm font-bold">Jason Bolt <span class="font-normal text-gray-500">unlocked</span> global-cdn</p>
-                                <p class="text-[10px] text-gray-500">1 hour ago</p>
-                            </div>
+                <div class="p-8 glass rounded-3xl border border-white/10 shadow-xl flex flex-col">
+                    <div class="flex justify-between items-center mb-10">
+                        <h3 class="font-bold text-lg">Drift Frequency</h3>
+                        <div class="flex gap-2">
+                            <button class="px-3 py-1 bg-primary text-white text-[10px] rounded-lg font-bold">Week</button>
+                            <button class="px-3 py-1 bg-white/5 text-gray-500 text-[10px] rounded-lg font-bold">Month</button>
                         </div>
                     </div>
-                    <div class="bg-white/5 p-8 border-t border-white/10">
-                        <div class="flex flex-wrap items-center justify-between gap-6">
-                            <div class="flex items-center gap-4">
-                                <i class="fas fa-database text-2xl text-primary"></i>
-                                <div><p class="font-bold text-sm">Remote Backend: AWS S3</p><p class="text-[10px] text-gray-500">Bucket: terrastack-state-prod | Region: us-east-1</p></div>
-                            </div>
-                            <div class="flex items-center gap-6">
-                                <div class="text-center"><p class="font-bold">124MB</p><p class="text-[10px] text-gray-500 uppercase">State Size</p></div>
-                                <div class="text-center"><p class="font-bold">Active</p><p class="text-[10px] text-gray-500 uppercase">Lock Status</p></div>
-                                <button class="px-4 py-2 border border-white/10 rounded-lg text-xs font-bold hover:bg-white/5">Manage Backend</button>
-                            </div>
+                    <div class="flex-grow flex items-end gap-3 px-4 mb-2">
+                        <div class="flex-1 bg-white/10 rounded-t-lg h-[20%] transition-all hover:h-[30%] hover:bg-primary/50 relative group cursor-help">
+                            <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-dark border border-white/10 px-2 py-1 rounded text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">Mon: 2</div>
                         </div>
+                        <div class="flex-1 bg-white/10 rounded-t-lg h-[15%] transition-all hover:h-[25%] hover:bg-primary/50"></div>
+                        <div class="flex-1 bg-red-500/40 rounded-t-lg h-[60%] transition-all hover:h-[70%] hover:bg-red-500 shadow-lg shadow-red-500/20"></div>
+                        <div class="flex-1 bg-white/10 rounded-t-lg h-[25%] transition-all hover:h-[35%] hover:bg-primary/50"></div>
+                        <div class="flex-1 bg-orange-500/40 rounded-t-lg h-[45%] transition-all hover:h-[55%] hover:bg-orange-500 shadow-lg shadow-orange-500/20"></div>
+                        <div class="flex-1 bg-white/10 rounded-t-lg h-[10%] transition-all hover:h-[20%] hover:bg-primary/50"></div>
+                        <div class="flex-1 bg-primary rounded-t-lg h-[85%] transition-all hover:h-[95%] shadow-lg shadow-primary/20"></div>
+                    </div>
+                    <div class="flex justify-between px-4 text-[9px] font-bold text-gray-500 tracking-widest mt-4">
+                        <span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span>
                     </div>
                 </div>
             </section>
-        </div>
-    </main>
 
-    <!-- Footer -->
-
+            <!-- 4. Activity and State -->
+            <section id="activity" class="reveal delay-300 pb-10">
+                <div class="glass rounded-3xl border border-white/10 overflow-hidden shadow-2xl">
+                    <div class="px-8 py-6 border-b border-white/10 flex justify-between items-center">
+                        <h3 class="font-bold flex items-center gap-3"><i class="fas fa-users text-primary"></i> Team Activity</h3>
+                        <div class="flex -space-x-3">
+                            <img src="https://i.pravatar.cc/150?u=1" class="w-8 h-8 rounded-full border-2 border-dark">
+                            <img src="https://i.pravatar.cc/150?u=2" class="w-8 h-8 rounded-full border-2 border-dark">
+                            <img src="https://i.pravatar.cc/150?u=3" class="w-8 h-8 rounded-full border-2 border-dark">
+                            <div class="w-8 h-8 rounded-full border-2 border-dark bg-slate flex items-center justify-center text-[10px] font-bold">+5</div>
+                        </div>
+                    </div>
+                    <div class="p-8 grid md:grid-cols-3 gap-8">
+                        <div class="flex gap-4 p-4 hover:bg-white/5 rounded-2xl transition-all">
+                            <img src="https://i.pravatar.cc/150?u=1" class="w-10 h-10 rounded-xl shadow-lg">
+                            <div>
+                                <p class="text-sm font-bold leading-tight">Alex Rivera</p>
+                                <p class="text-xs text-gray-500">Locked <span class="text-secondary font-bold">prod-backend</span></p>
+                                <p class="text-[9px] text-gray-600 mt-1 font-mono italic">5m ago</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 hover:bg-white/5 rounded-2xl transition-all">
+                            <img src="https://i.pravatar.cc/150?u=2" class="w-10 h-10 rounded-xl shadow-lg">
+                            <div>
+                                <p class="text-sm font-bold leading-tight">Sarah Chen</p>
+                                <p class="text-xs text-gray-500">Created <span class="text-primary font-bold">dev-branch-32</span></p>
+                                <p class="text-[9px] text-gray-600 mt-1 font-mono italic">22m ago</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 hover:bg-white/5 rounded-2xl transition-all">
+                            <img src="https://i.pravatar.cc/150?u=3" class="w-10 h-10 rounded-xl shadow-lg">
+                            <div>
+                                <p class="text-sm font-bold leading-tight">Jason Bolt</p>
+                                <p class="text-xs text-gray-500">Merged <span class="text-secondary font-bold">global-cdn</span></p>
+                                <p class="text-[9px] text-gray-600 mt-1 font-mono italic">1h ago</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="backend" class="bg-white/5 p-8 border-t border-white/10">
+                        <div class="flex flex-wrap items-center justify-between gap-8">
+                            <div class="flex items-center gap-5">
+                                <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-2xl text-primary shadow-inner"><i class="fas fa-database"></i></div>
+                                <div>
+                                    <p class="font-bold text-base leading-tight">Remote Backend: AWS S3</p>
+                                    <p class="text-xs text-gray-500 mt-1">terrastack-state-prod | Versioning: <span class="text-secondary font-bold">ON</span></p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-8">
+                                <div class="text-center bg-white/5 px-4 py-2 rounded-xl"><p class="font-bold text-lg leading-none mb-1">124MB</p><p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">State Size</p></div>
+                                <div class="text-center bg-white/5 px-4 py-2 rounded-xl"><p class="font-bold text-lg leading-none mb-1 text-secondary">Locked</p><p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Status</p></div>
+                                <button class="px-6 py-3 bg-white text-dark rounded-xl text-xs font-bold hover:bg-primary hover:text-white transition-all shadow-xl shadow-black/30">Backend Settings</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
 
     <script src="assets/js/main.js"></script>
 </body>

@@ -29,10 +29,10 @@
 
     <!-- Top Settings -->
     <div class="fixed top-6 right-6 z-50 flex gap-4">
-        <button id="theme-toggle" class="p-3 rounded-full glass bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all">
+        <button id="theme-toggle" class="w-12 h-12 flex items-center justify-center rounded-full glass bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all shadow-lg">
             <i class="fas fa-moon dark:hidden text-lg"></i><i class="fas fa-sun hidden dark:inline text-lg"></i>
         </button>
-        <button id="rtl-toggle" class="px-4 py-2 rounded-full glass bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all text-xs font-bold uppercase">
+        <button id="rtl-toggle" class="w-12 h-12 flex items-center justify-center rounded-full glass bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all text-[10px] font-bold uppercase shadow-lg">
             RTL
         </button>
     </div>
@@ -56,7 +56,7 @@
                         <p class="text-sm text-gray-500">Start your 14-day free trial. No credit card required.</p>
                     </div>
                     <form class="space-y-4">
-                        <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
                             <div>
                                 <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-1">First Name</label>
                                 <input type="text" placeholder="John" class="w-full bg-slate/5 dark:bg-white/5 border border-slate/20 dark:border-white/10 px-4 py-3 rounded-xl focus:outline-none focus:border-secondary">
@@ -71,8 +71,25 @@
                             <input type="email" placeholder="name@company.com" class="w-full bg-slate/5 dark:bg-white/5 border border-slate/20 dark:border-white/10 px-4 py-3 rounded-xl focus:outline-none focus:border-secondary">
                         </div>
                         <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-1">Password</label>
-                            <input type="password" placeholder="At least 8 characters" class="w-full bg-slate/5 dark:bg-white/5 border border-slate/20 dark:border-white/10 px-4 py-3 rounded-xl focus:outline-none focus:border-secondary">
+                            <div class="flex justify-between mb-1">
+                                <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-500">Password</label>
+                                <a href="#" class="text-[10px] text-secondary font-bold hover:underline">Forgot?</a>
+                            </div>
+                            <div class="relative">
+                                <input type="password" id="password" placeholder="At least 8 characters" class="w-full bg-slate/5 dark:bg-white/5 border border-slate/20 dark:border-white/10 px-4 py-3 rounded-xl focus:outline-none focus:border-secondary pr-12">
+                                <button type="button" onclick="togglePassword('password', 'eye-icon')" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-secondary transition-colors">
+                                    <i id="eye-icon" class="fas fa-eye text-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-1">Confirm Password</label>
+                            <div class="relative">
+                                <input type="password" id="confirm-password" placeholder="Repeat your password" class="w-full bg-slate/5 dark:bg-white/5 border border-slate/20 dark:border-white/10 px-4 py-3 rounded-xl focus:outline-none focus:border-secondary pr-12">
+                                <button type="button" onclick="togglePassword('confirm-password', 'confirm-eye-icon')" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-secondary transition-colors">
+                                    <i id="confirm-eye-icon" class="fas fa-eye text-sm"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="flex items-start gap-3 py-2">
                             <input type="checkbox" class="mt-1 accent-secondary">
@@ -81,6 +98,18 @@
                         <button class="w-full py-4 bg-secondary text-white rounded-xl font-bold hover:bg-secondary/90 transition-all shadow-xl shadow-secondary/20">
                             Create Free Account
                         </button>
+                        <div class="relative py-4">
+                            <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate/10 dark:border-white/10"></div></div>
+                            <div class="relative flex justify-center text-[10px] uppercase font-bold tracking-widest text-gray-500"><span class="bg-white dark:bg-slate-900 px-4">Or continue with</span></div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <button class="flex items-center justify-center gap-2 py-3 border border-slate/20 dark:border-white/10 rounded-xl hover:bg-slate/5 dark:hover:bg-white/5 transition-all">
+                                <i class="fab fa-google"></i> <span class="text-xs font-bold text-gray-600 dark:text-gray-300">Google</span>
+                            </button>
+                            <button class="flex items-center justify-center gap-2 py-3 border border-slate/20 dark:border-white/10 rounded-xl hover:bg-slate/5 dark:hover:bg-white/5 transition-all">
+                                <i class="fab fa-apple"></i> <span class="text-xs font-bold text-gray-600 dark:text-gray-300">Apple</span>
+                            </button>
+                        </div>
                     </form>
 
                     <!-- 4. Benefits of Joining TerraStack -->
@@ -110,5 +139,20 @@
 
 
     <script src="assets/js/main.js"></script>
+    <script>
+        function togglePassword(inputId, iconId) {
+            const passwordInput = document.getElementById(inputId);
+            const eyeIcon = document.getElementById(iconId);
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+    </script>
 </body>
 </html>

@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 3. Dark Mode Toggle
-    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggles = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
     const htmlElement = document.documentElement;
 
     // Check for saved theme
@@ -33,16 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
         htmlElement.classList.add('dark');
     }
 
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            htmlElement.classList.toggle('dark');
-            if (htmlElement.classList.contains('dark')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
-            }
-        });
-    }
+    themeToggles.forEach(toggle => {
+        if (toggle) {
+            toggle.addEventListener('click', () => {
+                htmlElement.classList.toggle('dark');
+                if (htmlElement.classList.contains('dark')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        }
+    });
 
     // 3.1 RTL Toggle
     const rtlToggles = document.querySelectorAll('#rtl-toggle, #rtl-toggle-mobile');
@@ -111,5 +113,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (counters.length > 0) {
         counterObserver.observe(counters[0].parentElement);
+    }
+
+    // 6. Navbar Scroll Effect
+    const header = document.querySelector('header');
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('navbar-scrolled');
+            } else {
+                header.classList.remove('navbar-scrolled');
+            }
+        });
     }
 });

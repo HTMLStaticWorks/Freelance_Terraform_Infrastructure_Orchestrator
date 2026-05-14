@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | TerraStack - Join the Automation Revolution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#06B6D4',
+                        secondary: '#10B981',
+                        dark: '#0F172A',
+                        slate: '#1E293B',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-dark text-slate dark:text-gray-300 min-h-screen flex flex-col transition-colors duration-300">
+
+    <div id="loader"><div class="loader-spinner"></div></div>
+
+    <!-- Top Settings -->
+    <div class="fixed top-6 right-6 z-50 flex gap-4">
+        <button id="theme-toggle" class="p-3 rounded-full glass bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all">
+            <i class="fas fa-moon dark:hidden text-lg"></i><i class="fas fa-sun hidden dark:inline text-lg"></i>
+        </button>
+        <button id="rtl-toggle" class="px-4 py-2 rounded-full glass bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all text-xs font-bold uppercase">
+            RTL
+        </button>
+    </div>
+
+
+
+    <main class="flex-grow flex items-center justify-center pt-24 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="max-w-xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+
+                <!-- 2. Registration Form -->
+                <div class="p-12 glass dark:bg-slate/40 flex flex-col justify-center reveal delay-200">
+                    <div class="mb-8 flex justify-center">
+                        <a href="index.html" class="flex items-center space-x-2">
+                            <img src="assets/images/logo.png" alt="TerraStack Logo" class="w-10 h-10">
+                            <span class="text-2xl font-bold text-dark dark:text-white tracking-tighter">Terra<span class="text-primary">Stack</span></span>
+                        </a>
+                    </div>
+                    <div class="mb-10 text-center">
+                        <h2 class="text-3xl font-bold mb-2">Create Account</h2>
+                        <p class="text-sm text-gray-500">Start your 14-day free trial. No credit card required.</p>
+                    </div>
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-1">First Name</label>
+                                <input type="text" placeholder="John" class="w-full bg-slate/5 dark:bg-white/5 border border-slate/20 dark:border-white/10 px-4 py-3 rounded-xl focus:outline-none focus:border-secondary">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-1">Last Name</label>
+                                <input type="text" placeholder="Doe" class="w-full bg-slate/5 dark:bg-white/5 border border-slate/20 dark:border-white/10 px-4 py-3 rounded-xl focus:outline-none focus:border-secondary">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-1">Company Email</label>
+                            <input type="email" placeholder="name@company.com" class="w-full bg-slate/5 dark:bg-white/5 border border-slate/20 dark:border-white/10 px-4 py-3 rounded-xl focus:outline-none focus:border-secondary">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-1">Password</label>
+                            <input type="password" placeholder="At least 8 characters" class="w-full bg-slate/5 dark:bg-white/5 border border-slate/20 dark:border-white/10 px-4 py-3 rounded-xl focus:outline-none focus:border-secondary">
+                        </div>
+                        <div class="flex items-start gap-3 py-2">
+                            <input type="checkbox" class="mt-1 accent-secondary">
+                            <p class="text-[10px] text-gray-500">I agree to the <a href="#" class="text-secondary hover:underline">Terms of Service</a> and <a href="#" class="text-secondary hover:underline">Privacy Policy</a>.</p>
+                        </div>
+                        <button class="w-full py-4 bg-secondary text-white rounded-xl font-bold hover:bg-secondary/90 transition-all shadow-xl shadow-secondary/20">
+                            Create Free Account
+                        </button>
+                    </form>
+
+                    <!-- 4. Benefits of Joining TerraStack -->
+                    <div class="mt-8 grid grid-cols-3 gap-4">
+                        <div class="text-center">
+                            <p class="text-xs font-bold">14 Days</p>
+                            <p class="text-[10px] text-gray-500">Free Trial</p>
+                        </div>
+                        <div class="text-center border-x border-slate/10 dark:border-white/10">
+                            <p class="text-xs font-bold">Unlimited</p>
+                            <p class="text-[10px] text-gray-500">Workspaces</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-xs font-bold">24/7</p>
+                            <p class="text-[10px] text-gray-500">Expert Support</p>
+                        </div>
+                    </div>
+
+                    <p class="mt-8 text-center text-sm text-gray-500">
+                        Already have an account? <a href="login.html" class="text-secondary font-bold hover:underline">Log in</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | TerraStack - Infrastructure Orchestrator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#06B6D4',
+                        secondary: '#10B981',
+                        dark: '#0F172A',
+                        slate: '#1E293B',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-dark text-slate dark:text-gray-300 transition-colors duration-300">
+
+    <div id="loader"><div class="loader-spinner"></div></div>
+
+    <!-- Header/Navbar -->
+    <header class="fixed w-full z-50 transition-all duration-300 glass border-b border-white/10">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="assets/images/logo.png" alt="TerraStack Logo" class="w-10 h-10">
+                <span class="text-2xl font-bold text-dark dark:text-white tracking-tighter">Terra<span class="text-primary">Stack</span></span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden lg:flex space-x-8 items-center font-medium">
+                <li><a href="index.html" class="hover:text-primary transition-colors">Home 1</a></li>
+                <li><a href="home-2.html" class="hover:text-primary transition-colors">Home 2</a></li>
+                <li><a href="about.html" class="text-primary hover:text-primary transition-colors">About</a></li>
+
+                <li><a href="modules.html" class="hover:text-primary transition-colors">Modules</a></li>
+                <li><a href="dashboard.html" class="hover:text-primary transition-colors">Dashboard</a></li>
+                <li><a href="blog.html" class="hover:text-primary transition-colors">Blog</a></li>
+                <li><a href="contact.html" class="hover:text-primary transition-colors">Contact</a></li>
+                <li>
+                    <button id="theme-toggle" class="p-2 rounded-full bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                </li>
+                <li>
+                    <button id="rtl-toggle" class="p-2 rounded-full bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all text-[10px] font-bold uppercase">
+                        RTL
+                    </button>
+                </li>
+                <li><a href="login.html" class="px-4 py-2 hover:text-primary">Login</a></li>
+                <li><a href="signup.html" class="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">Sign Up</a></li>
+            </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-dark/95 border-t border-white/10 py-6 px-6 absolute w-full animate-fadeInUp">
+            <ul class="flex flex-col space-y-4">
+                <li><a href="index.html" class="block">Home 1</a></li>
+                <li><a href="home-2.html" class="block">Home 2</a></li>
+                <li><a href="about.html" class="text-primary block">About</a></li>
+
+                <li><a href="modules.html" class="block">Modules</a></li>
+                <li><a href="dashboard.html" class="block">Dashboard</a></li>
+                <li><a href="blog.html" class="block">Blog</a></li>
+                <li><a href="contact.html" class="block">Contact</a></li>
+                <li class="pt-4 flex space-x-4">
+                    <a href="login.html" class="w-1/3 text-center py-2 border border-primary text-primary rounded-lg text-xs">Login</a>
+                    <a href="signup.html" class="w-1/3 text-center py-2 bg-primary text-white rounded-lg text-xs">Sign Up</a>
+                    <button id="rtl-toggle-mobile" class="w-1/3 text-center py-2 bg-white/10 text-white rounded-lg text-xs font-bold uppercase">RTL</button>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. About TerraStack -->
+        <section class="pt-32 pb-20 lg:pt-48 lg:pb-32">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="relative reveal">
+                        <div class="w-full h-[500px] bg-slate/10 dark:bg-white/5 rounded-3xl overflow-hidden relative">
+                             <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=800&q=80" alt="DevOps Engineer" class="w-full h-full object-cover grayscale opacity-50">
+                             <div class="absolute inset-0 bg-primary/20 mix-blend-overlay"></div>
+                             <div class="absolute bottom-8 left-8 right-8 p-6 glass rounded-2xl">
+                                <p class="text-white font-bold text-xl italic">"Infrastructure is not a hardware problem, it's a software challenge."</p>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="reveal delay-200">
+                        <h2 class="text-4xl font-bold mb-6">Mastering Infrastructure as Code.</h2>
+                        <p class="text-lg text-slate/70 dark:text-gray-400 mb-6">
+                            I am a Freelance DevOps Architect with over 8 years of experience in scaling complex cloud systems. My mission is to bridge the gap between development and operations through meticulous Terraform orchestration.
+                        </p>
+                        <p class="text-slate/60 dark:text-gray-500 mb-8">
+                            Founded on the principles of efficiency and reliability, TerraStack provides enterprise-grade infrastructure solutions to startups and tech giants alike.
+                        </p>
+                        <div class="flex gap-4">
+                             <div class="text-center p-4 glass rounded-xl flex-1">
+                                <p class="text-2xl font-bold text-primary">8+</p>
+                                <p class="text-[10px] uppercase opacity-60">Years Exp</p>
+                             </div>
+                             <div class="text-center p-4 glass rounded-xl flex-1">
+                                <p class="text-2xl font-bold text-secondary">200+</p>
+                                <p class="text-[10px] uppercase opacity-60">Projects</p>
+                             </div>
+                             <div class="text-center p-4 glass rounded-xl flex-1">
+                                <p class="text-2xl font-bold text-cyan-500">50+</p>
+                                <p class="text-[10px] uppercase opacity-60">Companies</p>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. DevOps Experience Timeline -->
+        <section class="py-24 bg-slate-50 dark:bg-slate/30">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl font-bold mb-4">Journey of Excellence</h2>
+                    <p class="text-slate/60 dark:text-gray-400">A timeline of cloud transformations and architectural milestones.</p>
+                </div>
+                <div class="max-w-4xl mx-auto">
+                    <div class="space-y-12">
+                        <!-- 2024 -->
+                        <div class="flex gap-8 reveal">
+                            <div class="w-32 pt-2 text-right">
+                                <span class="text-primary font-bold">2024 - Present</span>
+                            </div>
+                            <div class="relative">
+                                <div class="w-4 h-4 rounded-full bg-primary mt-3 ring-4 ring-primary/20"></div>
+                                <div class="absolute top-8 bottom-0 left-2 w-0.5 bg-slate/10"></div>
+                            </div>
+                            <div class="flex-1 pb-8">
+                                <h4 class="text-xl font-bold mb-2">Lead Orchestrator at TerraStack</h4>
+                                <p class="text-sm text-slate/60 dark:text-gray-400">Specializing in multi-cloud cost optimization and drift detection for high-traffic fintech platforms.</p>
+                            </div>
+                        </div>
+                        <!-- 2021 -->
+                        <div class="flex gap-8 reveal">
+                            <div class="w-32 pt-2 text-right">
+                                <span class="text-slate/40 font-bold">2021 - 2023</span>
+                            </div>
+                            <div class="relative">
+                                <div class="w-4 h-4 rounded-full bg-slate/20 mt-3"></div>
+                                <div class="absolute top-8 bottom-0 left-2 w-0.5 bg-slate/10"></div>
+                            </div>
+                            <div class="flex-1 pb-8">
+                                <h4 class="text-xl font-bold mb-2">Senior DevOps Engineer at CloudScale</h4>
+                                <p class="text-sm text-slate/60 dark:text-gray-400">Architected automated Kubernetes (EKS/GKE) deployments for 50+ microservices.</p>
+                            </div>
+                        </div>
+                        <!-- 2018 -->
+                        <div class="flex gap-8 reveal">
+                            <div class="w-32 pt-2 text-right">
+                                <span class="text-slate/40 font-bold">2018 - 2020</span>
+                            </div>
+                            <div class="relative">
+                                <div class="w-4 h-4 rounded-full bg-slate/20 mt-3"></div>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold mb-2">Cloud Consultant</h4>
+                                <p class="text-sm text-slate/60 dark:text-gray-400">Helping traditional enterprises migrate legacy workloads to AWS using Infrastructure as Code.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Certifications & Tools -->
+        <section class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <div class="reveal">
+                        <h2 class="text-3xl font-bold mb-10">Tools of the Trade</h2>
+                        <div class="grid grid-cols-3 md:grid-cols-4 gap-6">
+                            <div class="flex flex-col items-center gap-2 p-4 glass rounded-2xl hover:bg-primary/10 transition-colors">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" class="w-12 h-12">
+                                <span class="text-xs">Terraform</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-2 p-4 glass rounded-2xl hover:bg-primary/10 transition-colors">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" class="w-12 h-12">
+                                <span class="text-xs">K8s</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-2 p-4 glass rounded-2xl hover:bg-primary/10 transition-colors">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="w-12 h-12">
+                                <span class="text-xs">Docker</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-2 p-4 glass rounded-2xl hover:bg-primary/10 transition-colors">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg" class="w-12 h-12">
+                                <span class="text-xs">AWS</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-2 p-4 glass rounded-2xl hover:bg-primary/10 transition-colors">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" class="w-12 h-12">
+                                <span class="text-xs">Azure</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-2 p-4 glass rounded-2xl hover:bg-primary/10 transition-colors">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" class="w-12 h-12">
+                                <span class="text-xs">GCP</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-2 p-4 glass rounded-2xl hover:bg-primary/10 transition-colors">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" class="w-12 h-12">
+                                <span class="text-xs">Jenkins</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-2 p-4 glass rounded-2xl hover:bg-primary/10 transition-colors">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-12 h-12">
+                                <span class="text-xs">Actions</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal delay-200">
+                        <h2 class="text-3xl font-bold mb-10">Certifications</h2>
+                        <div class="space-y-4">
+                            <div class="p-6 glass rounded-2xl flex items-center gap-6 border-l-4 border-primary">
+                                <i class="fas fa-certificate text-3xl text-primary"></i>
+                                <div>
+                                    <h4 class="font-bold">HashiCorp Certified: Terraform Associate</h4>
+                                    <p class="text-xs opacity-60">Verified HashiCorp Practitioner</p>
+                                </div>
+                            </div>
+                            <div class="p-6 glass rounded-2xl flex items-center gap-6 border-l-4 border-orange-500">
+                                <i class="fab fa-aws text-3xl text-orange-500"></i>
+                                <div>
+                                    <h4 class="font-bold">AWS Certified Solutions Architect – Professional</h4>
+                                    <p class="text-xs opacity-60">Architecting Complex Systems on AWS</p>
+                                </div>
+                            </div>
+                            <div class="p-6 glass rounded-2xl flex items-center gap-6 border-l-4 border-blue-500">
+                                <i class="fab fa-microsoft text-3xl text-blue-500"></i>
+                                <div>
+                                    <h4 class="font-bold">Microsoft Certified: Azure Solutions Architect Expert</h4>
+                                    <p class="text-xs opacity-60">Expert Level Infrastructure Management</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Why Clients Choose Me -->
+        <section class="py-24 bg-dark text-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl font-bold mb-4">Why Clients Choose Me</h2>
+                    <p class="text-gray-400">The TerraStack advantage: Speed, Security, and Scalability.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center p-8 bg-white/5 rounded-3xl border border-white/10 reveal delay-100">
+                        <div class="w-16 h-16 bg-primary/20 text-primary rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Clean Code Standards</h3>
+                        <p class="text-sm text-gray-400">Modules follow the highest industry standards with full documentation and linting.</p>
+                    </div>
+                    <div class="text-center p-8 bg-white/5 rounded-3xl border border-white/10 reveal delay-200">
+                        <div class="w-16 h-16 bg-secondary/20 text-secondary rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Security First</h3>
+                        <p class="text-sm text-gray-400">Policy as Code (Opa/Sentinel) is integrated into every deployment for maximum safety.</p>
+                    </div>
+                    <div class="text-center p-8 bg-white/5 rounded-3xl border border-white/10 reveal delay-300">
+                        <div class="w-16 h-16 bg-cyan-500/20 text-cyan-500 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Rapid Delivery</h3>
+                        <p class="text-sm text-gray-400">Pre-built module libraries allow us to spin up complex environments in days, not months.</p>
+                    </div>
+                </div>
+                <div class="mt-16 text-center reveal">
+                     <a href="contact.html" class="px-8 py-4 bg-primary text-white rounded-xl font-bold hover:scale-105 transition-all">Work With Me</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-20 pb-10 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-2 md:col-span-1">
+                    <a href="index.html" class="flex items-center space-x-2 mb-6">
+                        <img src="assets/images/logo.png" alt="TerraStack Logo" class="w-8 h-8">
+                        <span class="text-xl font-bold text-white">Terra<span class="text-primary">Stack</span></span>
+                    </a>
+                    <p class="text-gray-400 mb-8 leading-relaxed">
+                        Building the future of infrastructure through code, automation, and DevOps excellence.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-github"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
+
+                        <li><a href="modules.html" class="hover:text-primary transition-colors">TF Modules</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Support</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="dashboard.html" class="hover:text-primary transition-colors">Dashboard</a></li>
+                        <li><a href="blog.html" class="hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors">Contact</a></li>
+                        <li><a href="login.html" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Newsletter</h4>
+                    <p class="text-gray-400 mb-4 text-sm">Get the latest cloud updates directly to your inbox.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Email address" class="bg-white/5 border border-white/10 px-4 py-2 rounded-l-lg w-full focus:outline-none focus:border-primary">
+                        <button class="bg-primary px-4 py-2 rounded-r-lg hover:bg-primary/90 transition-colors"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 text-center text-gray-500 text-sm">
+                <p>&copy; 2026 TerraStack. All rights reserved. Designed for Cloud Excellence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

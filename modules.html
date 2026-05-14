@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modules | TerraStack - Reusable Infrastructure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#06B6D4',
+                        secondary: '#10B981',
+                        dark: '#0F172A',
+                        slate: '#1E293B',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-dark text-slate dark:text-gray-300 transition-colors duration-300">
+
+    <div id="loader"><div class="loader-spinner"></div></div>
+
+    <!-- Header/Navbar -->
+    <header class="fixed w-full z-50 transition-all duration-300 glass border-b border-white/10">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="assets/images/logo.png" alt="TerraStack Logo" class="w-10 h-10">
+                <span class="text-2xl font-bold text-dark dark:text-white tracking-tighter">Terra<span class="text-primary">Stack</span></span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden lg:flex space-x-8 items-center font-medium">
+                <li><a href="index.html" class="hover:text-primary transition-colors">Home 1</a></li>
+                <li><a href="home-2.html" class="hover:text-primary transition-colors">Home 2</a></li>
+                <li><a href="about.html" class="hover:text-primary transition-colors">About</a></li>
+
+                <li><a href="modules.html" class="text-primary hover:text-primary transition-colors">Modules</a></li>
+                <li><a href="dashboard.html" class="hover:text-primary transition-colors">Dashboard</a></li>
+                <li><a href="blog.html" class="hover:text-primary transition-colors">Blog</a></li>
+                <li><a href="contact.html" class="hover:text-primary transition-colors">Contact</a></li>
+                <li>
+                    <button id="theme-toggle" class="p-2 rounded-full bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                </li>
+                <li>
+                    <button id="rtl-toggle" class="p-2 rounded-full bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all text-[10px] font-bold uppercase">
+                        RTL
+                    </button>
+                </li>
+                <li><a href="login.html" class="px-4 py-2 hover:text-primary">Login</a></li>
+                <li><a href="signup.html" class="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">Sign Up</a></li>
+            </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-dark/95 border-t border-white/10 py-6 px-6 absolute w-full animate-fadeInUp">
+            <ul class="flex flex-col space-y-4">
+                <li><a href="index.html" class="block">Home 1</a></li>
+                <li><a href="home-2.html" class="block">Home 2</a></li>
+                <li><a href="about.html" class="block">About</a></li>
+
+                <li><a href="modules.html" class="text-primary block">Modules</a></li>
+                <li><a href="dashboard.html" class="block">Dashboard</a></li>
+                <li><a href="blog.html" class="block">Blog</a></li>
+                <li><a href="contact.html" class="block">Contact</a></li>
+                <li class="pt-4 flex space-x-4">
+                    <a href="login.html" class="w-1/3 text-center py-2 border border-primary text-primary rounded-lg text-xs">Login</a>
+                    <a href="signup.html" class="w-1/3 text-center py-2 bg-primary text-white rounded-lg text-xs">Sign Up</a>
+                    <button id="rtl-toggle-mobile" class="w-1/3 text-center py-2 bg-white/10 text-white rounded-lg text-xs font-bold uppercase">RTL</button>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Modules Hero -->
+        <section class="pt-32 pb-20 bg-dark text-white overflow-hidden relative">
+            <div class="container mx-auto px-6 text-center reveal">
+                <h1 class="text-4xl lg:text-6xl font-bold mb-6">Terraform <span class="text-secondary">Module</span> Library</h1>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">Production-ready, battle-tested, and secure modules for every cloud provider.</p>
+                <div class="mt-12 flex justify-center gap-4">
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10">
+                        <i class="fab fa-github"></i> <span>2.4k Stars</span>
+                    </div>
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10">
+                        <i class="fas fa-download"></i> <span>50k+ Downloads</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Abstract background shape -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        </section>
+
+        <!-- 1. Featured Terraform Modules -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- VPC Module -->
+                    <div class="glass p-8 rounded-3xl border border-white/10 hover-lift reveal delay-100">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-xl">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <span class="text-[10px] font-bold bg-primary/20 text-primary px-2 py-1 rounded uppercase">v4.1.0</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">AWS VPC Advanced</h3>
+                        <p class="text-sm text-slate/60 dark:text-gray-400 mb-6">Standardized VPC with private/public subnets, NAT gateways, and flow logs enabled by default.</p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="text-[10px] bg-slate/10 dark:bg-white/5 px-2 py-1 rounded">AWS</span>
+                            <span class="text-[10px] bg-slate/10 dark:bg-white/5 px-2 py-1 rounded">Network</span>
+                            <span class="text-[10px] bg-slate/10 dark:bg-white/5 px-2 py-1 rounded">Security</span>
+                        </div>
+                        <a href="#" class="w-full py-3 bg-slate/5 dark:bg-white/5 rounded-xl text-center text-sm font-bold block hover:bg-primary hover:text-white transition-all">View Details</a>
+                    </div>
+                    <!-- Kubernetes Module -->
+                    <div class="glass p-8 rounded-3xl border border-white/10 hover-lift reveal delay-200">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 bg-secondary/10 text-secondary rounded-xl flex items-center justify-center text-xl">
+                                <i class="fas fa-cubes"></i>
+                            </div>
+                            <span class="text-[10px] font-bold bg-secondary/20 text-secondary px-2 py-1 rounded uppercase">v2.5.3</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">EKS Production Cluster</h3>
+                        <p class="text-sm text-slate/60 dark:text-gray-400 mb-6">Highly available EKS cluster with managed node groups, OIDC provider, and VPC CNI integration.</p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="text-[10px] bg-slate/10 dark:bg-white/5 px-2 py-1 rounded">Kubernetes</span>
+                            <span class="text-[10px] bg-slate/10 dark:bg-white/5 px-2 py-1 rounded">Container</span>
+                            <span class="text-[10px] bg-slate/10 dark:bg-white/5 px-2 py-1 rounded">DevOps</span>
+                        </div>
+                        <a href="#" class="w-full py-3 bg-slate/5 dark:bg-white/5 rounded-xl text-center text-sm font-bold block hover:bg-secondary hover:text-white transition-all">View Details</a>
+                    </div>
+                    <!-- Monitoring Module -->
+                    <div class="glass p-8 rounded-3xl border border-white/10 hover-lift reveal delay-300">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 bg-cyan-500/10 text-cyan-500 rounded-xl flex items-center justify-center text-xl">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <span class="text-[10px] font-bold bg-cyan-500/20 text-cyan-500 px-2 py-1 rounded uppercase">v1.2.0</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Observability Stack</h3>
+                        <p class="text-sm text-slate/60 dark:text-gray-400 mb-6">Pre-configured CloudWatch dashboards, Prometheus exporters, and Grafana data sources.</p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="text-[10px] bg-slate/10 dark:bg-white/5 px-2 py-1 rounded">Metrics</span>
+                            <span class="text-[10px] bg-slate/10 dark:bg-white/5 px-2 py-1 rounded">Logs</span>
+                            <span class="text-[10px] bg-slate/10 dark:bg-white/5 px-2 py-1 rounded">Monitoring</span>
+                        </div>
+                        <a href="#" class="w-full py-3 bg-slate/5 dark:bg-white/5 rounded-xl text-center text-sm font-bold block hover:bg-cyan-500 hover:text-white transition-all">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Open Source Contributions -->
+        <section class="py-20 bg-slate-50 dark:bg-slate/30">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl font-bold mb-4">Open Source Contributions</h2>
+                    <p class="text-slate/60 dark:text-gray-400">Giving back to the community through official provider contributions and tools.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="p-6 bg-white dark:bg-dark rounded-2xl border border-white/10 shadow-sm reveal delay-100">
+                        <i class="fab fa-github text-2xl mb-4"></i>
+                        <h4 class="font-bold mb-2">AWS Provider</h4>
+                        <p class="text-xs opacity-60 mb-4">Fixed bug in RDS cluster parameter group tagging.</p>
+                        <span class="text-[10px] text-primary">#14253 Merged</span>
+                    </div>
+                    <div class="p-6 bg-white dark:bg-dark rounded-2xl border border-white/10 shadow-sm reveal delay-200">
+                        <i class="fab fa-github text-2xl mb-4"></i>
+                        <h4 class="font-bold mb-2">Terraform Core</h4>
+                        <p class="text-xs opacity-60 mb-4">Improved state locking mechanisms for S3 backends.</p>
+                        <span class="text-[10px] text-primary">#9872 Merged</span>
+                    </div>
+                    <div class="p-6 bg-white dark:bg-dark rounded-2xl border border-white/10 shadow-sm reveal delay-300">
+                        <i class="fab fa-github text-2xl mb-4"></i>
+                        <h4 class="font-bold mb-2">Helm Chart</h4>
+                        <p class="text-xs opacity-60 mb-4">Official Grafana chart security hardening contributor.</p>
+                        <span class="text-[10px] text-primary">#224 Merged</span>
+                    </div>
+                    <div class="p-6 bg-white dark:bg-dark rounded-2xl border border-white/10 shadow-sm reveal delay-400">
+                        <i class="fab fa-github text-2xl mb-4"></i>
+                        <h4 class="font-bold mb-2">Pre-commit Hooks</h4>
+                        <p class="text-xs opacity-60 mb-4">Author of terraform-validate-tflint hook.</p>
+                        <span class="text-[10px] text-primary">v0.4.5 Published</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Module Architecture Showcase -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="reveal">
+                        <h2 class="text-3xl font-bold mb-6">Modular by Design</h2>
+                        <p class="text-lg text-slate/70 dark:text-gray-400 mb-8">Every module follows a strict hierarchy for maximum readability and maintenance.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4 p-4 glass rounded-xl">
+                                <div class="w-10 h-10 bg-primary/20 text-primary rounded-lg flex items-center justify-center"><i class="fas fa-folder"></i></div>
+                                <div><h5 class="font-bold">Root Module</h5><p class="text-xs opacity-60">Variables, outputs, and provider config.</p></div>
+                            </div>
+                            <div class="flex items-center gap-4 p-4 glass rounded-xl ml-8 border-l-2 border-primary/20">
+                                <div class="w-10 h-10 bg-secondary/20 text-secondary rounded-lg flex items-center justify-center"><i class="fas fa-file-code"></i></div>
+                                <div><h5 class="font-bold">Resource definitions</h5><p class="text-xs opacity-60">Main infrastructure logic.</p></div>
+                            </div>
+                            <div class="flex items-center gap-4 p-4 glass rounded-xl ml-16 border-l-2 border-secondary/20">
+                                <div class="w-10 h-10 bg-cyan-500/20 text-cyan-500 rounded-lg flex items-center justify-center"><i class="fas fa-shield-alt"></i></div>
+                                <div><h5 class="font-bold">Policy as Code</h5><p class="text-xs opacity-60">Opa/Checkov validation files.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal delay-200">
+                        <!-- Infrastructure Diagram Simulation -->
+                        <div class="aspect-video bg-dark/5 dark:bg-white/5 rounded-3xl border border-white/10 p-8 relative">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="grid grid-cols-3 gap-8">
+                                     <div class="w-20 h-20 bg-primary/20 border border-primary rounded-xl flex items-center justify-center text-primary"><i class="fas fa-globe text-2xl"></i></div>
+                                     <div class="w-20 h-20 bg-secondary/20 border border-secondary rounded-xl flex items-center justify-center text-secondary self-center"><i class="fas fa-server text-2xl"></i></div>
+                                     <div class="w-20 h-20 bg-orange-500/20 border border-orange-500 rounded-xl flex items-center justify-center text-orange-500"><i class="fas fa-database text-2xl"></i></div>
+                                </div>
+                            </div>
+                            <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-30">
+                                <line x1="33%" y1="50%" x2="50%" y2="50%" stroke="currentColor" stroke-dasharray="4"/>
+                                <line x1="50%" y1="50%" x2="66%" y2="50%" stroke="currentColor" stroke-dasharray="4"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Module Documentation Preview -->
+        <section class="py-20 bg-slate-50 dark:bg-slate/30">
+            <div class="container mx-auto px-6">
+                <div class="bg-dark rounded-3xl shadow-2xl overflow-hidden border border-white/10 reveal">
+                    <div class="bg-white/5 px-6 py-3 border-b border-white/10 flex items-center justify-between">
+                         <div class="flex items-center gap-2">
+                             <i class="fab fa-readme text-gray-400"></i>
+                             <span class="text-sm font-bold text-gray-300">README.md</span>
+                         </div>
+                         <div class="flex items-center gap-4 text-xs text-gray-500">
+                             <span>Inputs: 14</span>
+                             <span>Outputs: 8</span>
+                             <span>Resources: 22</span>
+                         </div>
+                    </div>
+                    <div class="p-10 prose prose-invert max-w-none">
+                        <h2 class="text-primary font-bold text-2xl mb-6">AWS EKS Cluster Module</h2>
+                        <p class="text-gray-400 mb-8">This module provisions a production-ready AWS EKS cluster with all necessary IAM roles, security groups, and networking configuration.</p>
+                        
+                        <h3 class="text-lg font-bold mb-4">Input Variables</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-sm text-gray-400">
+                                <thead class="border-b border-white/10 text-white uppercase text-xs">
+                                    <tr>
+                                        <th class="py-3 px-4">Name</th>
+                                        <th class="py-3 px-4">Type</th>
+                                        <th class="py-3 px-4">Default</th>
+                                        <th class="py-3 px-4">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-white/5">
+                                    <tr>
+                                        <td class="py-3 px-4 font-mono text-secondary">cluster_name</td>
+                                        <td class="py-3 px-4">string</td>
+                                        <td class="py-3 px-4">-</td>
+                                        <td class="py-3 px-4">The name of the EKS cluster.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 px-4 font-mono text-secondary">cluster_version</td>
+                                        <td class="py-3 px-4">string</td>
+                                        <td class="py-3 px-4">"1.29"</td>
+                                        <td class="py-3 px-4">Kubernetes version.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 px-4 font-mono text-secondary">vpc_id</td>
+                                        <td class="py-3 px-4">string</td>
+                                        <td class="py-3 px-4">-</td>
+                                        <td class="py-3 px-4">ID of the VPC to deploy into.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 text-center reveal">
+                     <a href="signup.html" class="px-8 py-4 bg-primary text-white rounded-xl font-bold hover:scale-105 transition-all inline-block">Access Private Registry</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-20 pb-10 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-2 md:col-span-1">
+                    <a href="index.html" class="flex items-center space-x-2 mb-6">
+                        <img src="assets/images/logo.png" alt="TerraStack Logo" class="w-8 h-8">
+                        <span class="text-xl font-bold text-white">Terra<span class="text-primary">Stack</span></span>
+                    </a>
+                    <p class="text-gray-400 mb-8 leading-relaxed">
+                        Building the future of infrastructure through code, automation, and DevOps excellence.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-github"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
+
+                        <li><a href="modules.html" class="hover:text-primary transition-colors">TF Modules</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Support</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="dashboard.html" class="hover:text-primary transition-colors">Dashboard</a></li>
+                        <li><a href="blog.html" class="hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors">Contact</a></li>
+                        <li><a href="login.html" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Newsletter</h4>
+                    <p class="text-gray-400 mb-4 text-sm">Get the latest cloud updates directly to your inbox.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Email address" class="bg-white/5 border border-white/10 px-4 py-2 rounded-l-lg w-full focus:outline-none focus:border-primary">
+                        <button class="bg-primary px-4 py-2 rounded-r-lg hover:bg-primary/90 transition-colors"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 text-center text-gray-500 text-sm">
+                <p>&copy; 2026 TerraStack. All rights reserved. Designed for Cloud Excellence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

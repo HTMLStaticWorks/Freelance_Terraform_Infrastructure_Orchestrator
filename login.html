@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | TerraStack - Secure DevOps Access</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#06B6D4',
+                        secondary: '#10B981',
+                        dark: '#0F172A',
+                        slate: '#1E293B',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-dark text-slate dark:text-gray-300 min-h-screen flex flex-col transition-colors duration-300">
+
+    <div id="loader"><div class="loader-spinner"></div></div>
+
+    <!-- Top Settings -->
+    <div class="fixed top-6 right-6 z-50 flex gap-4">
+        <button id="theme-toggle" class="p-3 rounded-full glass bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all">
+            <i class="fas fa-moon dark:hidden text-lg"></i><i class="fas fa-sun hidden dark:inline text-lg"></i>
+        </button>
+        <button id="rtl-toggle" class="px-4 py-2 rounded-full glass bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all text-xs font-bold uppercase">
+            RTL
+        </button>
+    </div>
+
+
+
+    <main class="flex-grow flex items-center justify-center pt-24 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+
+                <!-- 2. Secure Login Form -->
+                <div class="p-12 glass dark:bg-slate/40 flex flex-col justify-center reveal delay-200">
+                    <div class="mb-8 flex justify-center">
+                        <a href="index.html" class="flex items-center space-x-2">
+                            <img src="assets/images/logo.png" alt="TerraStack Logo" class="w-10 h-10">
+                            <span class="text-2xl font-bold text-dark dark:text-white tracking-tighter">Terra<span class="text-primary">Stack</span></span>
+                        </a>
+                    </div>
+                    <div class="mb-10 text-center">
+                        <h2 class="text-3xl font-bold mb-2">Secure Login</h2>
+                        <p class="text-sm text-gray-500">Enter your credentials to enter the control room.</p>
+                    </div>
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Work Email</label>
+                            <input type="email" placeholder="name@company.com" class="w-full bg-slate/5 dark:bg-white/5 border border-slate/20 dark:border-white/10 px-4 py-3 rounded-xl focus:outline-none focus:border-primary">
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label class="block text-xs font-bold uppercase tracking-widest text-gray-500">Password</label>
+                                <a href="#" class="text-[10px] text-primary font-bold hover:underline">Forgot?</a>
+                            </div>
+                            <input type="password" placeholder="••••••••" class="w-full bg-slate/5 dark:bg-white/5 border border-slate/20 dark:border-white/10 px-4 py-3 rounded-xl focus:outline-none focus:border-primary">
+                        </div>
+                        <button class="w-full py-4 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-2">
+                            Enter Dashboard <i class="fas fa-sign-in-alt"></i>
+                        </button>
+                        <div class="relative py-4">
+                            <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate/10 dark:border-white/10"></div></div>
+                            <div class="relative flex justify-center text-xs uppercase"><span class="bg-white dark:bg-slate-900 px-4 text-gray-500">Or continue with</span></div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <button class="flex items-center justify-center gap-2 py-3 border border-slate/20 dark:border-white/10 rounded-xl hover:bg-slate/5 dark:hover:bg-white/5 transition-all">
+                                <i class="fab fa-github"></i> <span class="text-xs font-bold">GitHub</span>
+                            </button>
+                            <button class="flex items-center justify-center gap-2 py-3 border border-slate/20 dark:border-white/10 rounded-xl hover:bg-slate/5 dark:hover:bg-white/5 transition-all">
+                                <i class="fab fa-google"></i> <span class="text-xs font-bold">Google</span>
+                            </button>
+                        </div>
+                    </form>
+                    <p class="mt-8 text-center text-sm text-gray-500">
+                        Don't have an account? <a href="signup.html" class="text-primary font-bold hover:underline">Join the team</a>
+                    </p>
+                    
+                    <!-- 4. Security & Compliance Info -->
+                    <div class="mt-12 pt-8 border-t border-slate/10 dark:border-white/10 flex justify-center gap-6 opacity-40 grayscale">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/SOC2_Type2.png" class="h-8 grayscale brightness-200" alt="SOC2">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/ISO_IEC_27001_Logo.svg" class="h-8 grayscale brightness-200" alt="ISO 27001">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/GDPR_logo.svg" class="h-8 grayscale brightness-200" alt="GDPR">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

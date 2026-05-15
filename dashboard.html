@@ -49,9 +49,9 @@
 
     <!-- Desktop Floating Settings (Hidden, moved to profile bar) -->
 
-    <div class="flex min-h-screen">
+    <div class="block lg:flex min-h-screen">
         <!-- Professional Sidebar -->
-        <aside id="mobile-menu" class="hidden lg:flex flex-col w-full sm:w-64 bg-slate dark:bg-[#0b1121] border-r border-white/10 p-6 fixed lg:sticky top-0 h-screen z-50 transition-all duration-300">
+        <aside id="mobile-menu" class="hidden lg:flex flex-col w-full sm:w-64 bg-slate dark:bg-[#0b1121] border-r border-white/10 p-6 fixed lg:sticky top-0 h-screen z-50 transition-all duration-300 overflow-y-auto custom-scrollbar">
             <div class="flex justify-between items-center mb-10 lg:block">
                 <a href="index.html" class="flex items-center space-x-3">
                     <img src="assets/images/logo.png" alt="TerraStack Logo" class="w-10 h-10">
@@ -109,21 +109,16 @@
         </aside>
 
         <!-- Main Workspace -->
-        <main class="flex-grow lg:ml-64 bg-white dark:bg-dark p-6 lg:p-8 pt-20 lg:pt-8 transition-all duration-300">
+        <main class="flex-grow w-full max-w-full bg-white dark:bg-dark px-5 sm:px-8 lg:px-10 pt-24 lg:pt-10 transition-all duration-300 overflow-x-hidden">
             
             <!-- Dashboard Top Bar -->
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-6">
-                <div>
-                    <nav class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2">
-                        <a href="index.html" class="hover:text-primary">Home</a>
-                        <i class="fas fa-chevron-right text-[8px]"></i>
-                        <span class="text-primary">Dashboard</span>
-                    </nav>
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-center mb-10 gap-6 text-center md:text-left">
+                <div class="flex flex-col items-center md:items-start">
                     <h1 id="overview" class="text-3xl font-bold dark:text-white">Control Room</h1>
                     <p class="text-sm text-gray-500 mt-1">Monitor, orchestrate, and secure your cloud infrastructure.</p>
                 </div>
                 
-                <div class="flex items-center gap-3">
+                <div class="flex flex-wrap items-center justify-center gap-3">
                     <div class="hidden lg:flex items-center gap-2">
                         <button id="theme-toggle-dash" class="w-12 h-12 flex items-center justify-center rounded-2xl bg-white dark:bg-slate/50 text-slate-900 dark:text-white border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/5 transition-all shadow-sm">
                             <i class="fas fa-moon dark:hidden text-lg"></i><i class="fas fa-sun hidden dark:inline text-lg"></i>
@@ -134,7 +129,7 @@
                     </div>
                     <div class="flex items-center gap-3 px-4 py-2 bg-white dark:bg-slate/50 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm">
                         <img src="https://i.pravatar.cc/150?u=dev" class="w-10 h-10 rounded-full border border-primary/50">
-                        <div>
+                        <div class="text-left">
                             <p class="text-sm font-bold text-slate-900 dark:text-white">DevOps User</p>
                             <p class="text-[10px] text-primary">Senior Architect</p>
                         </div>
@@ -218,7 +213,7 @@
             <!-- 2. Logs and Plans -->
             <section id="deployments" class="grid lg:grid-cols-3 gap-8 mb-8 reveal delay-100">
                 <div class="lg:col-span-2 glass rounded-3xl border border-white/10 overflow-hidden flex flex-col shadow-xl shadow-black/20">
-                    <div class="px-8 py-6 border-b border-white/10 flex justify-between items-center bg-white/5">
+                    <div class="px-6 py-4 md:px-8 md:py-6 border-b border-white/10 flex justify-between items-center bg-white/5">
                         <div class="flex items-center gap-3">
                             <div class="w-2 h-2 bg-primary rounded-full"></div>
                             <h3 class="font-bold">Recent Deployment Logs</h3>
@@ -259,7 +254,7 @@
                     </div>
                 </div>
 
-                <div class="glass rounded-3xl border border-white/10 p-8 flex flex-col shadow-xl shadow-black/20 relative">
+                <div class="glass rounded-3xl border border-white/10 p-6 md:p-8 flex flex-col shadow-xl shadow-black/20 relative">
                     <h3 class="font-bold mb-8 flex items-center gap-3">
                         <i class="fas fa-chart-pie text-primary"></i> Resource Distribution
                     </h3>
@@ -307,8 +302,8 @@
 
             <!-- 3. Drift and History -->
             <section id="drift" class="grid lg:grid-cols-2 gap-8 mb-8 reveal delay-200">
-                <div class="p-8 glass rounded-3xl border border-white/10 shadow-xl">
-                    <div class="flex justify-between items-start mb-8">
+                <div class="p-6 md:p-8 glass rounded-3xl border border-white/10 shadow-xl">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 bg-red-500/10 text-red-500 rounded-xl flex items-center justify-center text-xl shadow-lg shadow-red-500/10"><i class="fas fa-exclamation-triangle"></i></div>
                             <div>
@@ -316,7 +311,7 @@
                                 <p class="text-xs text-gray-500 mt-1">Manual changes bypass Terraform workflow.</p>
                             </div>
                         </div>
-                        <span class="px-3 py-1 bg-red-500/20 text-red-500 text-[10px] rounded-full font-bold animate-pulse uppercase">2 Drifts</span>
+                        <span class="px-3 py-1 bg-red-500/20 text-red-500 text-[10px] rounded-full font-bold animate-pulse uppercase whitespace-nowrap">2 Drifts</span>
                     </div>
                     
                     <div class="space-y-4">
@@ -348,8 +343,8 @@
                     <button class="w-full mt-6 py-3 border border-white/10 rounded-xl text-xs font-bold hover:bg-white/5 transition-all">Re-scan Infrastructure</button>
                 </div>
 
-                <div class="p-8 glass rounded-3xl border border-white/10 shadow-xl flex flex-col">
-                    <div class="flex justify-between items-center mb-10">
+                <div class="p-6 md:p-8 glass rounded-3xl border border-white/10 shadow-xl flex flex-col">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 gap-4">
                         <h3 class="font-bold text-lg">Drift Frequency</h3>
                         <div class="flex gap-2">
                             <button class="px-3 py-1 bg-primary text-white text-[10px] rounded-lg font-bold">Week</button>
@@ -376,7 +371,7 @@
             <!-- 4. Activity and State -->
             <section id="activity" class="reveal delay-300 pb-10">
                 <div class="glass rounded-3xl border border-white/10 overflow-hidden shadow-2xl">
-                    <div class="px-8 py-6 border-b border-white/10 flex justify-between items-center">
+                    <div class="px-6 py-4 md:px-8 md:py-6 border-b border-white/10 flex justify-between items-center">
                         <h3 class="font-bold flex items-center gap-3"><i class="fas fa-users text-primary"></i> Team Activity</h3>
                         <div class="flex -space-x-3">
                             <img src="https://i.pravatar.cc/150?u=1" class="w-8 h-8 rounded-full border-2 border-dark">
@@ -385,7 +380,7 @@
                             <div class="w-8 h-8 rounded-full border-2 border-dark bg-slate flex items-center justify-center text-[10px] font-bold">+5</div>
                         </div>
                     </div>
-                    <div class="p-8 grid md:grid-cols-3 gap-8">
+                    <div class="p-6 md:p-8 grid md:grid-cols-3 gap-8">
                         <div class="flex gap-4 p-4 hover:bg-white/5 rounded-2xl transition-all">
                             <img src="https://i.pravatar.cc/150?u=1" class="w-10 h-10 rounded-xl shadow-lg">
                             <div>
@@ -411,7 +406,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="backend" class="bg-white/5 p-8 border-t border-white/10">
+                    <div id="backend" class="bg-white/5 p-6 md:p-8 border-t border-white/10">
                         <div class="flex flex-wrap items-center justify-between gap-8">
                             <div class="flex items-center gap-5">
                                 <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-2xl text-primary shadow-inner"><i class="fas fa-database"></i></div>
@@ -445,31 +440,45 @@
 
         // Active Menu Highlight Logic
         const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('section[id], h1[id]');
+        const sections = document.querySelectorAll('section[id], h1[id], div[id]');
 
         const highlightNav = () => {
             let scrollY = window.pageYOffset;
+            let currentSectionId = "overview"; // Default to first section
             
             sections.forEach(current => {
-                const sectionHeight = current.offsetHeight;
-                const sectionTop = current.offsetTop - 150;
-                const sectionId = current.getAttribute('id');
+                const sectionTop = current.offsetTop - 160;
+                if (scrollY >= sectionTop) {
+                    currentSectionId = current.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href').substring(1);
+                link.classList.remove('bg-primary/10', 'text-primary', 'font-bold');
+                link.classList.add('text-gray-400', 'font-medium');
                 
-                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('bg-primary/10', 'text-primary', 'font-bold');
-                        link.classList.add('text-gray-400', 'font-medium');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('bg-primary/10', 'text-primary', 'font-bold');
-                            link.classList.remove('text-gray-400', 'font-medium');
-                        }
-                    });
+                if (linkHref === currentSectionId) {
+                    link.classList.add('bg-primary/10', 'text-primary', 'font-bold');
+                    link.classList.remove('text-gray-400', 'font-medium');
                 }
             });
         };
 
         window.addEventListener('scroll', highlightNav);
         highlightNav(); // Initial call
+
+        // Click-based highlight for better UX
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.forEach(l => {
+                    l.classList.remove('bg-primary/10', 'text-primary', 'font-bold');
+                    l.classList.add('text-gray-400', 'font-medium');
+                });
+                link.classList.add('bg-primary/10', 'text-primary', 'font-bold');
+                link.classList.remove('text-gray-400', 'font-medium');
+            });
+        });
     </script>
 </body>
 </html>

@@ -97,22 +97,41 @@
     </header>
 
     <main>
-        <!-- 1. About TerraStack -->
-        <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-            <!-- Background Decoration (Optional) -->
-            <div class="absolute inset-0 z-0 pointer-events-none opacity-50 dark:opacity-100">
-                <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -mr-64 -mt-64"></div>
-                <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] -ml-32 -mb-32"></div>
+        <!-- 1. About Hero Section -->
+        <section class="relative min-h-[60vh] flex items-center pt-20 overflow-hidden">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&w=1920&q=80" alt="Cloud Infrastructure" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-white/85 dark:bg-dark/90"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-white dark:from-dark via-transparent to-transparent"></div>
             </div>
-                        <div class="container mx-auto px-6 relative z-10">
+            
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <div class="reveal max-w-4xl mx-auto">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-xs font-bold text-primary mb-8 tracking-widest uppercase backdrop-blur-sm">
+                        <i class="fas fa-id-card"></i> About TerraStack
+                    </div>
+                    <h1 class="text-5xl lg:text-8xl font-bold leading-tight mb-8 text-slate-900 dark:text-white">
+                        Mastering <span class="text-primary">Infrastructure</span> as Code.
+                    </h1>
+                    <p class="text-xl lg:text-2xl text-slate-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
+                        Bridging the gap between development and operations through meticulous Terraform orchestration and enterprise-grade cloud solutions.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Professional Profile -->
+        <section class="py-20 overflow-hidden">
+            <div class="container mx-auto px-6">
                 <div class="flex flex-col lg:flex-row gap-16 items-center">
-                    <div class="lg:w-1/2 reveal delay-200 text-center lg:text-left order-1 lg:order-2">
-                        <h2 class="text-4xl font-bold mb-6 text-slate-900 dark:text-white">Mastering Infrastructure as Code.</h2>
+                    <div class="lg:w-1/2 reveal text-center lg:text-left">
+                        <h2 class="text-4xl font-bold mb-6 text-slate-900 dark:text-white">Expert DevOps Architect.</h2>
                         <p class="text-lg text-slate-600 dark:text-gray-400 mb-6 max-w-xl mx-auto lg:mx-0">
-                            I am a Freelance DevOps Architect with over 8 years of experience in scaling complex cloud systems. My mission is to bridge the gap between development and operations through meticulous Terraform orchestration.
+                            I am a Freelance DevOps Architect with over 8 years of experience in scaling complex cloud systems. My mission is to provide efficient, reliable, and scalable infrastructure to startups and tech giants alike.
                         </p>
                         <p class="text-slate/60 dark:text-gray-500 mb-8 max-w-xl mx-auto lg:mx-0">
-                            Founded on the principles of efficiency and reliability, TerraStack provides enterprise-grade infrastructure solutions to startups and tech giants alike.
+                            Founded on the principles of efficiency and reliability, TerraStack provides enterprise-grade infrastructure solutions tailored to your unique business needs.
                         </p>
                         <div class="flex gap-4 max-w-md mx-auto lg:mx-0">
                              <div class="text-center p-4 glass rounded-xl flex-1">
@@ -129,7 +148,7 @@
                              </div>
                         </div>
                     </div>
-                    <div class="lg:w-1/2 relative reveal order-2 lg:order-1">
+                    <div class="lg:w-1/2 relative reveal">
                         <div class="w-full h-[500px] bg-slate/10 dark:bg-white/5 rounded-3xl overflow-hidden relative border border-slate-200 dark:border-white/10 shadow-xl">
                              <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=800&q=80" alt="DevOps Engineer" class="w-full h-full object-cover grayscale opacity-50 dark:opacity-30">
                              <div class="absolute inset-0 bg-primary/20 mix-blend-overlay"></div>

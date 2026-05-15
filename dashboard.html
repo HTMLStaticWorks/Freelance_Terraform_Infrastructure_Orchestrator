@@ -64,7 +64,7 @@
 
             <nav id="dashboard-nav" class="flex-grow space-y-2">
                 <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4 ml-2">Main Menu</p>
-                <a href="#overview" class="nav-link flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary font-bold rounded-xl text-sm transition-all">
+                <a href="#overview" class="nav-link flex items-center gap-3 px-4 py-3 text-gray-400 font-medium rounded-xl text-sm transition-all">
                     <i class="fas fa-th-large w-5"></i> Dashboard
                 </a>
                 <a href="#stats" class="nav-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
@@ -76,8 +76,8 @@
                 <a href="#drift" class="nav-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
                     <i class="fas fa-cloud w-5"></i> Cloud Providers
                 </a>
-                <a href="#activity" class="nav-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
-                    <i class="fas fa-book w-5"></i> Documentation
+                <a href="#health" class="nav-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
+                    <i class="fas fa-heartbeat w-5"></i> System Health
                 </a>
                 
                 <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-10 mb-4 ml-2">System</p>
@@ -365,41 +365,48 @@
                 </div>
             </section>
 
-            <!-- 4. Activity and State -->
-            <section id="activity" class="reveal delay-300 pb-10">
+            <!-- 4. System Health -->
+            <section id="health" class="reveal delay-300 pb-10">
                 <div class="glass rounded-3xl border border-white/10 overflow-hidden shadow-2xl">
                     <div class="px-6 py-4 md:px-8 md:py-6 border-b border-white/10 flex justify-between items-center">
-                        <h3 class="font-bold flex items-center gap-3"><i class="fas fa-users text-primary"></i> Team Activity</h3>
-                        <div class="flex -space-x-3">
-                            <img src="https://i.pravatar.cc/150?u=1" class="w-8 h-8 rounded-full border-2 border-dark">
-                            <img src="https://i.pravatar.cc/150?u=2" class="w-8 h-8 rounded-full border-2 border-dark">
-                            <img src="https://i.pravatar.cc/150?u=3" class="w-8 h-8 rounded-full border-2 border-dark">
-                            <div class="w-8 h-8 rounded-full border-2 border-dark bg-slate flex items-center justify-center text-[10px] font-bold">+5</div>
+                        <h3 class="font-bold flex items-center gap-3"><i class="fas fa-heartbeat text-primary"></i> System Health & Metrics</h3>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+                            <span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Real-time Data</span>
                         </div>
                     </div>
                     <div class="p-6 md:p-8 grid md:grid-cols-3 gap-8">
-                        <div class="flex gap-4 p-4 hover:bg-white/5 rounded-2xl transition-all">
-                            <img src="https://i.pravatar.cc/150?u=1" class="w-10 h-10 rounded-xl shadow-lg">
-                            <div>
-                                <p class="text-sm font-bold leading-tight">Alex Rivera</p>
-                                <p class="text-xs text-gray-500">Locked <span class="text-secondary font-bold">prod-backend</span></p>
-                                <p class="text-[9px] text-gray-600 mt-1 font-mono italic">5m ago</p>
+                        <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
+                            <div class="flex justify-between items-center mb-4">
+                                <p class="text-xs text-gray-500 uppercase font-bold">CPU Load</p>
+                                <i class="fas fa-microchip text-primary"></i>
+                            </div>
+                            <p class="text-2xl font-bold">24.5%</p>
+                            <div class="w-full bg-white/5 h-1.5 rounded-full mt-4">
+                                <div class="bg-primary h-1.5 rounded-full w-[24.5%]"></div>
                             </div>
                         </div>
-                        <div class="flex gap-4 p-4 hover:bg-white/5 rounded-2xl transition-all">
-                            <img src="https://i.pravatar.cc/150?u=2" class="w-10 h-10 rounded-xl shadow-lg">
-                            <div>
-                                <p class="text-sm font-bold leading-tight">Sarah Chen</p>
-                                <p class="text-xs text-gray-500">Created <span class="text-primary font-bold">dev-branch-32</span></p>
-                                <p class="text-[9px] text-gray-600 mt-1 font-mono italic">22m ago</p>
+                        <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
+                            <div class="flex justify-between items-center mb-4">
+                                <p class="text-xs text-gray-500 uppercase font-bold">Memory Usage</p>
+                                <i class="fas fa-memory text-secondary"></i>
+                            </div>
+                            <p class="text-2xl font-bold">4.2 / 16 GB</p>
+                            <div class="w-full bg-white/5 h-1.5 rounded-full mt-4">
+                                <div class="bg-secondary h-1.5 rounded-full w-[26%]"></div>
                             </div>
                         </div>
-                        <div class="flex gap-4 p-4 hover:bg-white/5 rounded-2xl transition-all">
-                            <img src="https://i.pravatar.cc/150?u=3" class="w-10 h-10 rounded-xl shadow-lg">
-                            <div>
-                                <p class="text-sm font-bold leading-tight">Jason Bolt</p>
-                                <p class="text-xs text-gray-500">Merged <span class="text-secondary font-bold">global-cdn</span></p>
-                                <p class="text-[9px] text-gray-600 mt-1 font-mono italic">1h ago</p>
+                        <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
+                            <div class="flex justify-between items-center mb-4">
+                                <p class="text-xs text-gray-500 uppercase font-bold">API Latency</p>
+                                <i class="fas fa-bolt text-amber-400"></i>
+                            </div>
+                            <p class="text-2xl font-bold">42ms</p>
+                            <div class="w-full bg-white/5 h-1.5 rounded-full mt-4 flex gap-1">
+                                <div class="h-1.5 w-1 bg-amber-400/20 rounded-full"></div>
+                                <div class="h-1.5 w-1 bg-amber-400/40 rounded-full"></div>
+                                <div class="h-1.5 w-1 bg-amber-400/60 rounded-full"></div>
+                                <div class="h-1.5 w-1 bg-amber-400 rounded-full"></div>
                             </div>
                         </div>
                     </div>
@@ -408,14 +415,14 @@
                             <div class="flex flex-col sm:flex-row items-center gap-5">
                                 <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-2xl text-primary shadow-inner shrink-0"><i class="fas fa-database"></i></div>
                                 <div>
-                                    <p class="font-bold text-base leading-tight text-slate-900 dark:text-white">Remote Backend: AWS S3</p>
-                                    <p class="text-xs text-gray-500 mt-1">terrastack-state-prod | Versioning: <span class="text-secondary font-bold">ON</span></p>
+                                    <p class="font-bold text-base leading-tight text-slate-900 dark:text-white">Terraform Runner Status</p>
+                                    <p class="text-xs text-gray-500 mt-1">Cluster ID: stack-01-prod | Region: <span class="text-secondary font-bold">EU-CENTRAL-1</span></p>
                                 </div>
                             </div>
                             <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 w-full lg:w-auto">
-                                <div class="text-center bg-white/5 px-4 py-2 rounded-xl min-w-[80px]"><p class="font-bold text-lg leading-none mb-1 text-slate-900 dark:text-white">124MB</p><p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">State Size</p></div>
-                                <div class="text-center bg-white/5 px-4 py-2 rounded-xl min-w-[80px]"><p class="font-bold text-lg leading-none mb-1 text-secondary">Locked</p><p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Status</p></div>
-                                <button class="w-full sm:w-auto px-6 py-3 bg-white dark:bg-white/10 text-dark dark:text-white rounded-xl text-xs font-bold hover:bg-primary hover:text-white transition-all shadow-xl shadow-black/30 border border-transparent dark:border-white/10">Backend Settings</button>
+                                <div class="text-center bg-white/5 px-4 py-2 rounded-xl min-w-[80px]"><p class="font-bold text-lg leading-none mb-1 text-slate-900 dark:text-white">99.9%</p><p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Uptime</p></div>
+                                <div class="text-center bg-white/5 px-4 py-2 rounded-xl min-w-[80px]"><p class="font-bold text-lg leading-none mb-1 text-secondary">Healthy</p><p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Node Status</p></div>
+                                <button class="w-full sm:w-auto px-6 py-3 bg-white dark:bg-white/10 text-dark dark:text-white rounded-xl text-xs font-bold hover:bg-primary hover:text-white transition-all shadow-xl shadow-black/30 border border-transparent dark:border-white/10">Diagnostics</button>
                             </div>
                         </div>
                     </div>
@@ -444,60 +451,78 @@
             });
         }
 
-        // Active Menu Highlight Logic (Scroll-Spy)
+        // Robust Active Menu Highlight Logic
         const navLinks = document.querySelectorAll('.nav-link');
-        // Only target the specific sections that have corresponding nav links
-        const targetSectionIds = Array.from(navLinks).map(link => link.getAttribute('href').substring(1));
-        const sections = targetSectionIds.map(id => document.getElementById(id)).filter(el => el !== null);
+        const sections = Array.from(navLinks).map(link => {
+            const id = link.getAttribute('href').substring(1);
+            return document.getElementById(id);
+        }).filter(s => s !== null);
 
-        const highlightNav = () => {
-            let scrollY = window.pageYOffset;
-            let currentSectionId = targetSectionIds[0]; // Default to first navigable section
-            
-            sections.forEach(current => {
-                const sectionTop = current.offsetTop - 150;
-                const sectionHeight = current.offsetHeight;
-                if (scrollY >= sectionTop) {
-                    currentSectionId = current.getAttribute('id');
-                }
-            });
+        const activeClasses = ['bg-primary/10', 'text-primary', 'font-bold'];
+        const inactiveClasses = ['text-gray-400', 'font-medium'];
 
+        let isManualScrolling = false;
+        let scrollTimeout;
+
+        const setActiveLink = (targetId) => {
             navLinks.forEach(link => {
-                const linkHref = link.getAttribute('href').substring(1);
-                if (linkHref === currentSectionId) {
-                    link.classList.add('bg-primary/10', 'text-primary', 'font-bold');
-                    link.classList.remove('text-gray-400', 'font-medium');
+                const href = link.getAttribute('href');
+                if (href === `#${targetId}`) {
+                    link.classList.add(...activeClasses);
+                    link.classList.remove(...inactiveClasses);
                 } else {
-                    link.classList.remove('bg-primary/10', 'text-primary', 'font-bold');
-                    link.classList.add('text-gray-400', 'font-medium');
+                    link.classList.remove(...activeClasses);
+                    link.classList.add(...inactiveClasses);
                 }
             });
         };
 
-        window.addEventListener('scroll', highlightNav);
-        
-        // Default landing logic for Workspaces
-        window.addEventListener('load', () => {
-            if (!window.location.hash) {
-                const statsSection = document.getElementById('stats');
-                if (statsSection) {
-                    window.scrollTo({
-                        top: statsSection.offsetTop - 120,
-                        behavior: 'smooth'
-                    });
+        // Scroll Spy using IntersectionObserver for high precision
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observerCallback = (entries) => {
+            if (isManualScrolling) return;
+            
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setActiveLink(entry.target.id);
                 }
-            } else {
-                // If there is a hash, scroll to it properly
-                const target = document.querySelector(window.location.hash);
+            });
+
+            // Special case for the very bottom of the page (Documentation)
+            const scrollY = window.pageYOffset;
+            const scrollHeight = document.documentElement.scrollHeight;
+            const clientHeight = document.documentElement.clientHeight;
+            if (Math.ceil(scrollY + clientHeight) >= scrollHeight - 50) {
+                setActiveLink('health');
+            }
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        sections.forEach(section => observer.observe(section));
+
+        // Initial load highlighting
+        window.addEventListener('load', () => {
+            const hash = window.location.hash;
+            if (hash) {
+                const target = document.querySelector(hash);
                 if (target) {
+                    isManualScrolling = true;
+                    setActiveLink(hash.substring(1));
                     window.scrollTo({
                         top: target.offsetTop - 120,
                         behavior: 'smooth'
                     });
+                    setTimeout(() => { isManualScrolling = false; }, 1000);
                 }
+            } else {
+                window.scrollTo({ top: 0 });
+                setActiveLink('overview');
             }
-            // Small delay to ensure scroll completes before initial highlight
-            setTimeout(highlightNav, 100);
         });
 
         // Click-based highlight with smooth scroll override
@@ -505,27 +530,29 @@
             link.addEventListener('click', (e) => {
                 const targetId = link.getAttribute('href');
                 
-                // If it's an internal link, handle it
                 if (targetId.startsWith('#')) {
                     e.preventDefault();
-                    const targetElement = document.querySelector(targetId);
                     
+                    isManualScrolling = true;
+                    setActiveLink(targetId.substring(1));
+                    
+                    const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         window.scrollTo({
                             top: targetElement.offsetTop - 120,
                             behavior: 'smooth'
                         });
                         
-                        // Manually set active state immediately
-                        navLinks.forEach(l => {
-                            l.classList.remove('bg-primary/10', 'text-primary', 'font-bold');
-                            l.classList.add('text-gray-400', 'font-medium');
-                        });
-                        link.classList.add('bg-primary/10', 'text-primary', 'font-bold');
-                        link.classList.remove('text-gray-400', 'font-medium');
+                        clearTimeout(scrollTimeout);
+                        scrollTimeout = setTimeout(() => {
+                            isManualScrolling = false;
+                        }, 1000);
                         
-                        // Update URL hash
-                        history.pushState(null, null, targetId);
+                        if (history.pushState) {
+                            history.pushState(null, null, targetId);
+                        } else {
+                            location.hash = targetId;
+                        }
                     }
                 }
 

@@ -37,7 +37,7 @@
             </a>
 
             <!-- Desktop Menu -->
-            <ul class="hidden lg:flex space-x-8 items-center font-medium">
+            <ul class="hidden lg:flex lg:space-x-3 xl:space-x-6 items-center font-medium lg:text-[11px] xl:text-sm">
                 <li><a href="index.html" class="hover:text-primary transition-colors">Home 1</a></li>
                 <li><a href="home-2.html" class="hover:text-primary transition-colors">Home 2</a></li>
                 <li><a href="about.html" class="text-primary hover:text-primary transition-colors">About</a></li>
@@ -58,13 +58,15 @@
                     </button>
                 </li>
 
-                <li><a href="signup.html" class="px-6 h-12 flex items-center justify-center bg-primary text-white rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 font-bold">Sign Up</a></li>
+                <li><a href="signup.html" class="lg:px-3 xl:px-6 h-10 xl:h-12 flex items-center justify-center bg-primary text-white rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 font-bold">Sign Up</a></li>
             </ul>
 
             <!-- Mobile Menu Toggle -->
-            <button id="mobile-menu-btn" class="lg:hidden p-2 text-2xl text-dark dark:text-white hover:text-primary transition-colors focus:outline-none">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="flex items-center lg:hidden">
+                <button id="mobile-menu-btn" class="p-2 text-2xl text-primary hover:text-secondary transition-colors focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </nav>
 
         <!-- Mobile Menu -->
@@ -78,9 +80,17 @@
                 <li><a href="blog.html" class="block">Blog</a></li>
                 <li><a href="contact.html" class="block">Contact</a></li>
                 <li><a href="dashboard.html" class="block">Dashboard</a></li>
-                <li class="pt-4 flex space-x-4">
-                    <a href="signup.html" class="w-1/2 flex items-center justify-center h-12 bg-primary text-white rounded-lg text-xs font-bold">Sign Up</a>
-                    <button id="rtl-toggle-mobile" class="w-1/2 flex items-center justify-center h-12 bg-white/10 text-white rounded-lg text-xs font-bold uppercase">RTL</button>
+                <li class="flex items-center gap-4 pt-4 border-t border-white/10">
+                    <button id="theme-toggle-mobile" class="w-12 h-12 flex items-center justify-center rounded-xl bg-white/10 text-white hover:bg-white/20 transition-all">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="rtl-toggle-mobile" class="flex-grow h-12 flex items-center justify-center rounded-xl bg-white/10 text-white hover:bg-white/20 transition-all text-xs font-bold uppercase">
+                        RTL Mode
+                    </button>
+                </li>
+                <li class="pt-2">
+                    <a href="signup.html" class="flex items-center justify-center h-12 bg-primary text-white rounded-lg font-bold">Sign Up</a>
                 </li>
             </ul>
         </div>
@@ -88,27 +98,23 @@
 
     <main>
         <!-- 1. About TerraStack -->
-        <section class="pt-32 pb-20 lg:pt-48 lg:pb-32">
-            <div class="container mx-auto px-6">
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
-                    <div class="relative reveal">
-                        <div class="w-full h-[500px] bg-slate/10 dark:bg-white/5 rounded-3xl overflow-hidden relative">
-                             <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=800&q=80" alt="DevOps Engineer" class="w-full h-full object-cover grayscale opacity-50">
-                             <div class="absolute inset-0 bg-primary/20 mix-blend-overlay"></div>
-                             <div class="absolute bottom-8 left-8 right-8 p-6 glass rounded-2xl">
-                                <p class="text-white font-bold text-xl italic">"Infrastructure is not a hardware problem, it's a software challenge."</p>
-                             </div>
-                        </div>
-                    </div>
-                    <div class="reveal delay-200">
-                        <h2 class="text-4xl font-bold mb-6">Mastering Infrastructure as Code.</h2>
-                        <p class="text-lg text-slate/70 dark:text-gray-400 mb-6">
+        <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+            <!-- Background Decoration (Optional) -->
+            <div class="absolute inset-0 z-0 pointer-events-none opacity-50 dark:opacity-100">
+                <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -mr-64 -mt-64"></div>
+                <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] -ml-32 -mb-32"></div>
+            </div>
+                        <div class="container mx-auto px-6 relative z-10">
+                <div class="flex flex-col lg:flex-row gap-16 items-center">
+                    <div class="lg:w-1/2 reveal delay-200 text-center lg:text-left order-1 lg:order-2">
+                        <h2 class="text-4xl font-bold mb-6 text-slate-900 dark:text-white">Mastering Infrastructure as Code.</h2>
+                        <p class="text-lg text-slate-600 dark:text-gray-400 mb-6 max-w-xl mx-auto lg:mx-0">
                             I am a Freelance DevOps Architect with over 8 years of experience in scaling complex cloud systems. My mission is to bridge the gap between development and operations through meticulous Terraform orchestration.
                         </p>
-                        <p class="text-slate/60 dark:text-gray-500 mb-8">
+                        <p class="text-slate/60 dark:text-gray-500 mb-8 max-w-xl mx-auto lg:mx-0">
                             Founded on the principles of efficiency and reliability, TerraStack provides enterprise-grade infrastructure solutions to startups and tech giants alike.
                         </p>
-                        <div class="flex gap-4">
+                        <div class="flex gap-4 max-w-md mx-auto lg:mx-0">
                              <div class="text-center p-4 glass rounded-xl flex-1">
                                 <p class="text-2xl font-bold text-primary">8+</p>
                                 <p class="text-[10px] uppercase opacity-60">Years Exp</p>
@@ -123,6 +129,15 @@
                              </div>
                         </div>
                     </div>
+                    <div class="lg:w-1/2 relative reveal order-2 lg:order-1">
+                        <div class="w-full h-[500px] bg-slate/10 dark:bg-white/5 rounded-3xl overflow-hidden relative border border-slate-200 dark:border-white/10 shadow-xl">
+                             <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=800&q=80" alt="DevOps Engineer" class="w-full h-full object-cover grayscale opacity-50 dark:opacity-30">
+                             <div class="absolute inset-0 bg-primary/20 mix-blend-overlay"></div>
+                             <div class="absolute bottom-8 left-8 right-8 p-6 glass rounded-2xl border border-white/20">
+                                <p class="text-slate-900 dark:text-white font-bold text-xl italic">"Infrastructure is not a hardware problem, it's a software challenge."</p>
+                             </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -131,8 +146,8 @@
         <section class="py-24 bg-slate-50 dark:bg-slate/30">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 reveal">
-                    <h2 class="text-3xl font-bold mb-4">Journey of Excellence</h2>
-                    <p class="text-slate/60 dark:text-gray-400">A timeline of cloud transformations and architectural milestones.</p>
+                    <h2 class="text-3xl lg:text-4xl font-bold mb-4 text-slate-900 dark:text-white">Journey of Excellence</h2>
+                    <p class="text-slate-600 dark:text-gray-300">A timeline of cloud transformations and architectural milestones.</p>
                 </div>
                 <div class="max-w-4xl mx-auto">
                     <div class="space-y-12">
@@ -143,38 +158,38 @@
                             </div>
                             <div class="relative">
                                 <div class="w-4 h-4 rounded-full bg-primary mt-3 ring-4 ring-primary/20"></div>
-                                <div class="absolute top-8 bottom-0 left-2 w-0.5 bg-slate/10"></div>
+                                <div class="absolute top-8 bottom-0 left-2 w-0.5 bg-slate-200 dark:bg-white/10"></div>
                             </div>
                             <div class="flex-1 pb-8">
-                                <h4 class="text-xl font-bold mb-2">Lead Orchestrator at TerraStack</h4>
-                                <p class="text-sm text-slate/60 dark:text-gray-400">Specializing in multi-cloud cost optimization and drift detection for high-traffic fintech platforms.</p>
+                                <h4 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Lead Orchestrator at TerraStack</h4>
+                                <p class="text-sm text-slate-600 dark:text-gray-300">Specializing in multi-cloud cost optimization and drift detection for high-traffic fintech platforms.</p>
                             </div>
                         </div>
                         <!-- 2021 -->
                         <div class="flex gap-8 reveal">
                             <div class="w-32 pt-2 text-right">
-                                <span class="text-slate/40 font-bold">2021 - 2023</span>
+                                <span class="text-slate-500 dark:text-gray-400 font-bold">2021 - 2023</span>
                             </div>
                             <div class="relative">
-                                <div class="w-4 h-4 rounded-full bg-slate/20 mt-3"></div>
-                                <div class="absolute top-8 bottom-0 left-2 w-0.5 bg-slate/10"></div>
+                                <div class="w-4 h-4 rounded-full bg-slate-200 dark:bg-white/20 mt-3"></div>
+                                <div class="absolute top-8 bottom-0 left-2 w-0.5 bg-slate-200 dark:bg-white/10"></div>
                             </div>
                             <div class="flex-1 pb-8">
-                                <h4 class="text-xl font-bold mb-2">Senior DevOps Engineer at CloudScale</h4>
-                                <p class="text-sm text-slate/60 dark:text-gray-400">Architected automated Kubernetes (EKS/GKE) deployments for 50+ microservices.</p>
+                                <h4 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Senior DevOps Engineer at CloudScale</h4>
+                                <p class="text-sm text-slate-600 dark:text-gray-300">Architected automated Kubernetes (EKS/GKE) deployments for 50+ microservices.</p>
                             </div>
                         </div>
                         <!-- 2018 -->
                         <div class="flex gap-8 reveal">
                             <div class="w-32 pt-2 text-right">
-                                <span class="text-slate/40 font-bold">2018 - 2020</span>
+                                <span class="text-slate-500 dark:text-gray-400 font-bold">2018 - 2020</span>
                             </div>
                             <div class="relative">
-                                <div class="w-4 h-4 rounded-full bg-slate/20 mt-3"></div>
+                                <div class="w-4 h-4 rounded-full bg-slate-200 dark:bg-white/20 mt-3"></div>
                             </div>
                             <div class="flex-1">
-                                <h4 class="text-xl font-bold mb-2">Cloud Consultant</h4>
-                                <p class="text-sm text-slate/60 dark:text-gray-400">Helping traditional enterprises migrate legacy workloads to AWS using Infrastructure as Code.</p>
+                                <h4 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Cloud Consultant</h4>
+                                <p class="text-sm text-slate-600 dark:text-gray-300">Helping traditional enterprises migrate legacy workloads to AWS using Infrastructure as Code.</p>
                             </div>
                         </div>
                     </div>
@@ -202,7 +217,7 @@
                                 <span class="text-xs">Docker</span>
                             </div>
                             <div class="flex flex-col items-center gap-2 p-4 glass rounded-2xl hover:bg-primary/10 transition-colors">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg" class="w-12 h-12">
+                                <i class="fab fa-aws text-4xl text-[#FF9900]"></i>
                                 <span class="text-xs">AWS</span>
                             </div>
                             <div class="flex flex-col items-center gap-2 p-4 glass rounded-2xl hover:bg-primary/10 transition-colors">
@@ -342,6 +357,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-lg hover:bg-primary/90 transition-all opacity-0 invisible z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="assets/js/main.js"></script>
 </body>

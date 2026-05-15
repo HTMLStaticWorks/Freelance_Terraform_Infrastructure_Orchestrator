@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 3. Dark Mode Toggle
-    const themeToggles = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
+    const themeToggles = document.querySelectorAll('[id^="theme-toggle"]');
     const htmlElement = document.documentElement;
 
     // Check for saved theme
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 3.1 RTL Toggle
-    const rtlToggles = document.querySelectorAll('#rtl-toggle, #rtl-toggle-mobile');
+    const rtlToggles = document.querySelectorAll('[id^="rtl-toggle"]');
     rtlToggles.forEach(toggle => {
         toggle.addEventListener('click', () => {
             const isRTL = htmlElement.getAttribute('dir') === 'rtl';
@@ -121,9 +121,28 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 20) {
                 header.classList.add('navbar-scrolled');
-            } else {
-                header.classList.remove('navbar-scrolled');
             }
+        });
+    }
+
+    // 7. Back to Top Button
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     }
 });

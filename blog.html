@@ -37,7 +37,7 @@
             </a>
 
             <!-- Desktop Menu -->
-            <ul class="hidden lg:flex space-x-8 items-center font-medium">
+            <ul class="hidden lg:flex lg:space-x-3 xl:space-x-6 items-center font-medium lg:text-[11px] xl:text-sm">
                 <li><a href="index.html" class="hover:text-primary transition-colors">Home 1</a></li>
                 <li><a href="home-2.html" class="hover:text-primary transition-colors">Home 2</a></li>
                 <li><a href="about.html" class="hover:text-primary transition-colors">About</a></li>
@@ -58,13 +58,15 @@
                     </button>
                 </li>
 
-                <li><a href="signup.html" class="px-6 h-12 flex items-center justify-center bg-primary text-white rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 font-bold">Sign Up</a></li>
+                <li><a href="signup.html" class="lg:px-3 xl:px-6 h-10 xl:h-12 flex items-center justify-center bg-primary text-white rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 font-bold">Sign Up</a></li>
             </ul>
 
             <!-- Mobile Menu Toggle -->
-            <button id="mobile-menu-btn" class="lg:hidden p-2 text-2xl text-dark dark:text-white hover:text-primary transition-colors focus:outline-none">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="flex items-center lg:hidden">
+                <button id="mobile-menu-btn" class="p-2 text-2xl text-primary hover:text-secondary transition-colors focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </nav>
 
         <!-- Mobile Menu -->
@@ -78,9 +80,17 @@
                 <li><a href="blog.html" class="text-primary block">Blog</a></li>
                 <li><a href="contact.html" class="block">Contact</a></li>
                 <li><a href="dashboard.html" class="block">Dashboard</a></li>
-                <li class="pt-4 flex space-x-4">
-                    <a href="signup.html" class="w-1/2 flex items-center justify-center h-12 bg-primary text-white rounded-lg text-xs font-bold">Sign Up</a>
-                    <button id="rtl-toggle-mobile" class="w-1/2 flex items-center justify-center h-12 bg-white/10 text-white rounded-lg text-xs font-bold uppercase">RTL</button>
+                <li class="flex items-center gap-4 pt-4 border-t border-white/10">
+                    <button id="theme-toggle-mobile" class="w-12 h-12 flex items-center justify-center rounded-xl bg-white/10 text-white hover:bg-white/20 transition-all">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="rtl-toggle-mobile" class="flex-grow h-12 flex items-center justify-center rounded-xl bg-white/10 text-white hover:bg-white/20 transition-all text-xs font-bold uppercase">
+                        RTL Mode
+                    </button>
+                </li>
+                <li class="pt-2">
+                    <a href="signup.html" class="flex items-center justify-center h-12 bg-primary text-white rounded-xl font-bold">Sign Up</a>
                 </li>
             </ul>
         </div>
@@ -88,19 +98,19 @@
 
     <main>
         <!-- 1. DevOps Hero Banner -->
-        <section class="relative pt-48 pb-32 overflow-hidden bg-dark">
+        <section class="relative pt-48 pb-32 overflow-hidden">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0 z-0">
                 <img src="assets/images/hero1.png" alt="DevOps Ledger" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-dark/80"></div>
+                <div class="absolute inset-0 bg-white/60 dark:bg-dark/80"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-white dark:from-dark via-transparent to-transparent"></div>
             </div>
 
             <div class="container mx-auto px-6 relative z-10 text-center reveal">
-                <h1 class="text-4xl lg:text-7xl font-bold mb-6 text-white tracking-tight">The <span class="text-primary">DevOps</span> Ledger</h1>
-                <p class="text-lg lg:text-xl text-gray-300 dark:text-gray-400 max-w-2xl mx-auto mb-10">In-depth guides, case studies, and the latest trends in Infrastructure as Code.</p>
+                <h1 class="text-4xl lg:text-7xl font-bold mb-6 text-slate-900 dark:text-white tracking-tight">The <span class="text-primary">DevOps</span> Ledger</h1>
+                <p class="text-lg lg:text-xl text-slate-600 dark:text-gray-400 max-w-2xl mx-auto mb-10">In-depth guides, case studies, and the latest trends in Infrastructure as Code.</p>
                 <div class="max-w-xl mx-auto relative">
-                    <input type="text" placeholder="Search articles..." class="w-full bg-white/10 border border-white/20 px-6 py-4 rounded-2xl text-white placeholder:text-gray-400 focus:outline-none focus:border-primary backdrop-blur-md">
+                    <input type="text" placeholder="Search articles..." class="w-full bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/20 px-6 py-4 rounded-2xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-gray-400 focus:outline-none focus:border-primary backdrop-blur-md">
                     <button class="absolute right-6 top-1/2 -translate-y-1/2 text-primary text-xl hover:scale-110 transition-transform"><i class="fas fa-search"></i></button>
                 </div>
             </div>
@@ -134,7 +144,7 @@
                     </div>
                     <div class="group reveal delay-200">
                         <div class="relative rounded-3xl overflow-hidden mb-6 aspect-video">
-                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc91?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute top-4 left-4 px-3 py-1 bg-primary text-white text-[10px] font-bold rounded-lg">SECURITY</div>
                         </div>
                         <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">Securing Terraform State with S3 and DynamoDB</h3>
@@ -173,7 +183,7 @@
                 <div class="space-y-6 max-w-4xl mx-auto">
                     <div class="p-8 glass rounded-3xl border border-white/10 flex flex-col md:flex-row gap-8 items-center reveal">
                         <div class="w-full md:w-48 h-32 rounded-2xl overflow-hidden flex-shrink-0">
-                            <img src="https://images.unsplash.com/photo-1667372333374-0d2d68b06f0e?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1591405351990-4726e331f141?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover">
                         </div>
                         <div class="flex-1">
                             <div class="flex items-center gap-2 text-xs font-bold text-secondary mb-2 uppercase"><span>Azure</span> &bull; <span>Intermediate</span></div>
@@ -184,7 +194,7 @@
                     </div>
                     <div class="p-8 glass rounded-3xl border border-white/10 flex flex-col md:flex-row gap-8 items-center reveal delay-100">
                         <div class="w-full md:w-48 h-32 rounded-2xl overflow-hidden flex-shrink-0">
-                            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover">
                         </div>
                         <div class="flex-1">
                             <div class="flex items-center gap-2 text-xs font-bold text-secondary mb-2 uppercase"><span>GCP</span> &bull; <span>Advanced</span></div>
@@ -215,12 +225,69 @@
                         </div>
                     </div>
                     <div class="relative h-[400px] rounded-3xl overflow-hidden group reveal delay-100">
-                        <img src="https://images.unsplash.com/photo-1551288049-bbbda5366392?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-80"></div>
                         <div class="absolute bottom-8 left-8 right-8 text-white">
                             <h4 class="text-2xl font-bold mb-2">Cost Reduction by 40% for CloudNative</h4>
                             <p class="text-sm text-gray-300 mb-6">Implementing advanced cost tagging and automated resource cleanup strategies.</p>
                             <a href="#" class="px-6 py-2 border border-white rounded-lg text-xs font-bold hover:bg-white hover:text-dark transition-all">Read Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- 5. FAQ Section -->
+        <section class="py-20 bg-slate-50 dark:bg-slate/30">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+                    <p class="text-slate/60 dark:text-gray-400">Everything you need to know about Terraform and Orchestration.</p>
+                </div>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <div class="faq-item group bg-white dark:bg-white/5 rounded-2xl border border-slate-200 dark:border-white/10 overflow-hidden reveal">
+                        <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-bold text-slate-900 dark:text-white">What is Terraform and why should I use it?</span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="px-8 pb-6 text-sm text-slate/70 dark:text-gray-400 leading-relaxed">
+                                Terraform is an Infrastructure as Code (IaC) tool that allows you to define and provision data center infrastructure using a high-level configuration language. It's essential for maintaining consistency, speed, and reliability across multiple cloud providers.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item group bg-white dark:bg-white/5 rounded-2xl border border-slate-200 dark:border-white/10 overflow-hidden reveal delay-100">
+                        <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-bold text-slate-900 dark:text-white">How do Terraform modules help in scaling?</span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="px-8 pb-6 text-sm text-slate/70 dark:text-gray-400 leading-relaxed">
+                                Modules are containers for multiple resources that are used together. They allow you to encapsulate infrastructure patterns, making them reusable, easier to manage, and simple to share across different environments like staging and production.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item group bg-white dark:bg-white/5 rounded-2xl border border-slate-200 dark:border-white/10 overflow-hidden reveal delay-200">
+                        <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-bold text-slate-900 dark:text-white">What is "Infrastructure Drift"?</span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="px-8 pb-6 text-sm text-slate/70 dark:text-gray-400 leading-relaxed">
+                                Infrastructure drift occurs when the actual state of your cloud resources deviates from the defined configuration in your Terraform files. This usually happens due to manual changes in the cloud console, which can lead to instability and security risks.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item group bg-white dark:bg-white/5 rounded-2xl border border-slate-200 dark:border-white/10 overflow-hidden reveal delay-300">
+                        <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-bold text-slate-900 dark:text-white">Is it safe to store state files in Git?</span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="px-8 pb-6 text-sm text-slate/70 dark:text-gray-400 leading-relaxed">
+                                No, it is highly discouraged to store Terraform state files in Git. State files often contain sensitive information in plain text. Instead, use secure remote backends like AWS S3 with encryption and DynamoDB for state locking.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -281,6 +348,37 @@
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-lg hover:bg-primary/90 transition-all opacity-0 invisible z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="assets/js/main.js"></script>
+    <script>
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-item button').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const icon = button.querySelector('i');
+                const content = button.nextElementSibling;
+                
+                // Toggle active class
+                const isOpen = item.classList.contains('faq-open');
+                
+                // Close all others
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    otherItem.classList.remove('faq-open');
+                    otherItem.querySelector('i').classList.remove('rotate-180');
+                    otherItem.querySelector('div').style.maxHeight = '0px';
+                });
+                
+                if (!isOpen) {
+                    item.classList.add('faq-open');
+                    icon.classList.add('rotate-180');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

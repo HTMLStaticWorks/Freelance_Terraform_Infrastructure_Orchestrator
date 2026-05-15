@@ -37,7 +37,7 @@
             </a>
 
             <!-- Desktop Menu -->
-            <ul class="hidden lg:flex space-x-8 items-center font-medium">
+            <ul class="hidden lg:flex lg:space-x-3 xl:space-x-6 items-center font-medium lg:text-[11px] xl:text-sm">
                 <li><a href="index.html" class="hover:text-primary transition-colors">Home 1</a></li>
                 <li><a href="home-2.html" class="hover:text-primary transition-colors">Home 2</a></li>
                 <li><a href="about.html" class="hover:text-primary transition-colors">About</a></li>
@@ -58,13 +58,15 @@
                     </button>
                 </li>
 
-                <li><a href="signup.html" class="px-6 h-12 flex items-center justify-center bg-primary text-white rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 font-bold">Sign Up</a></li>
+                <li><a href="signup.html" class="lg:px-3 xl:px-6 h-10 xl:h-12 flex items-center justify-center bg-primary text-white rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 font-bold">Sign Up</a></li>
             </ul>
 
             <!-- Mobile Menu Toggle -->
-            <button id="mobile-menu-btn" class="lg:hidden p-2 text-2xl text-dark dark:text-white hover:text-primary transition-colors focus:outline-none">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="flex items-center lg:hidden">
+                <button id="mobile-menu-btn" class="p-2 text-2xl text-primary hover:text-secondary transition-colors focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </nav>
 
         <!-- Mobile Menu -->
@@ -78,9 +80,17 @@
                 <li><a href="blog.html" class="block">Blog</a></li>
                 <li><a href="contact.html" class="block">Contact</a></li>
                 <li><a href="dashboard.html" class="block">Dashboard</a></li>
-                <li class="pt-4 flex space-x-4">
-                    <a href="signup.html" class="w-1/2 flex items-center justify-center h-12 bg-primary text-white rounded-lg text-xs font-bold">Sign Up</a>
-                    <button id="rtl-toggle-mobile" class="w-1/2 flex items-center justify-center h-12 bg-white/10 text-white rounded-lg text-xs font-bold uppercase">RTL</button>
+                <li class="flex items-center gap-4 pt-4 border-t border-white/10">
+                    <button id="theme-toggle-mobile" class="w-12 h-12 flex items-center justify-center rounded-xl bg-white/10 text-white hover:bg-white/20 transition-all">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="rtl-toggle-mobile" class="flex-grow h-12 flex items-center justify-center rounded-xl bg-white/10 text-white hover:bg-white/20 transition-all text-xs font-bold uppercase">
+                        RTL Mode
+                    </button>
+                </li>
+                <li class="pt-2">
+                    <a href="signup.html" class="flex items-center justify-center h-12 bg-primary text-white rounded-lg font-bold">Sign Up</a>
                 </li>
             </ul>
         </div>
@@ -88,23 +98,23 @@
 
     <main>
         <!-- Modules Hero -->
-        <section class="relative pt-48 pb-32 overflow-hidden bg-dark">
+        <section class="relative pt-48 pb-32 overflow-hidden">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0 z-0">
                 <img src="assets/images/hero2.png" alt="Terraform Modules" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-dark/80"></div>
+                <div class="absolute inset-0 bg-white/60 dark:bg-dark/80"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-white dark:from-dark via-transparent to-transparent"></div>
             </div>
 
             <div class="container mx-auto px-6 relative z-10 text-center reveal">
-                <h1 class="text-4xl lg:text-7xl font-bold mb-6 text-white tracking-tight">Terraform <span class="text-secondary">Module</span> Library</h1>
-                <p class="text-lg lg:text-xl text-gray-300 dark:text-gray-400 max-w-2xl mx-auto">Production-ready, battle-tested, and secure modules for every cloud provider.</p>
+                <h1 class="text-4xl lg:text-7xl font-bold mb-6 text-slate-900 dark:text-white tracking-tight">Terraform <span class="text-secondary">Module</span> Library</h1>
+                <p class="text-lg lg:text-xl text-slate-600 dark:text-gray-400 max-w-2xl mx-auto">Production-ready, battle-tested, and secure modules for every cloud provider.</p>
                 <div class="mt-12 flex flex-wrap justify-center gap-4">
-                    <div class="flex items-center gap-2 px-6 py-3 bg-white/10 rounded-full border border-white/20 backdrop-blur-md">
-                        <i class="fab fa-github text-primary"></i> <span class="text-sm font-bold text-white">2.4k Stars</span>
+                    <div class="flex items-center gap-2 px-6 py-3 bg-slate-100 dark:bg-white/10 rounded-full border border-slate-200 dark:border-white/20 backdrop-blur-md">
+                        <i class="fab fa-github text-primary"></i> <span class="text-sm font-bold text-slate-900 dark:text-white">2.4k Stars</span>
                     </div>
-                    <div class="flex items-center gap-2 px-6 py-3 bg-white/10 rounded-full border border-white/20 backdrop-blur-md">
-                        <i class="fas fa-download text-secondary"></i> <span class="text-sm font-bold text-white">50k+ Downloads</span>
+                    <div class="flex items-center gap-2 px-6 py-3 bg-slate-100 dark:bg-white/10 rounded-full border border-slate-200 dark:border-white/20 backdrop-blur-md">
+                        <i class="fas fa-download text-secondary"></i> <span class="text-sm font-bold text-slate-900 dark:text-white">50k+ Downloads</span>
                     </div>
                 </div>
             </div>
@@ -115,55 +125,55 @@
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-3 gap-8">
                     <!-- VPC Module -->
-                    <div class="glass p-8 rounded-3xl border border-white/10 hover-lift reveal delay-100">
+                    <div class="glass p-8 rounded-3xl border border-slate-200 dark:border-white/20 hover-lift reveal delay-100 flex flex-col">
                         <div class="flex justify-between items-start mb-6">
                             <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-xl">
                                 <i class="fas fa-network-wired"></i>
                             </div>
                             <span class="text-[10px] font-bold bg-primary/20 text-primary px-2 py-1 rounded uppercase">v4.1.0</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">AWS VPC Advanced</h3>
-                        <p class="text-sm text-slate/60 dark:text-gray-400 mb-6">Standardized VPC with private/public subnets, NAT gateways, and flow logs enabled by default.</p>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">AWS VPC Advanced</h3>
+                        <p class="text-sm text-slate-600 dark:text-gray-400 mb-6">Standardized VPC with private/public subnets, NAT gateways, and flow logs enabled by default.</p>
                         <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="text-[10px] bg-slate/10 dark:bg-white/5 px-2 py-1 rounded">AWS</span>
-                            <span class="text-[10px] bg-slate/10 dark:bg-white/5 px-2 py-1 rounded">Network</span>
-                            <span class="text-[10px] bg-slate/10 dark:bg-white/5 px-2 py-1 rounded">Security</span>
+                            <span class="text-[10px] bg-slate-100 dark:bg-white/5 px-2 py-1 rounded">AWS</span>
+                            <span class="text-[10px] bg-slate-100 dark:bg-white/5 px-2 py-1 rounded">Network</span>
+                            <span class="text-[10px] bg-slate-100 dark:bg-white/5 px-2 py-1 rounded">Security</span>
                         </div>
-                        <a href="#" class="w-full py-3 bg-slate/5 dark:bg-white/5 rounded-xl text-center text-sm font-bold block hover:bg-primary hover:text-white transition-all">View Details</a>
+                        <a href="#" class="w-full py-3 bg-slate-50 dark:bg-white/5 rounded-xl text-center text-sm font-bold block hover:bg-primary hover:text-white transition-all mt-auto border border-slate-100 dark:border-transparent">View Details</a>
                     </div>
                     <!-- Kubernetes Module -->
-                    <div class="glass p-8 rounded-3xl border border-white/10 hover-lift reveal delay-200">
+                    <div class="glass p-8 rounded-3xl border border-slate-200 dark:border-white/20 hover-lift reveal delay-200 flex flex-col">
                         <div class="flex justify-between items-start mb-6">
                             <div class="w-12 h-12 bg-secondary/10 text-secondary rounded-xl flex items-center justify-center text-xl">
                                 <i class="fas fa-cubes"></i>
                             </div>
                             <span class="text-[10px] font-bold bg-secondary/20 text-secondary px-2 py-1 rounded uppercase">v2.5.3</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">EKS Production Cluster</h3>
-                        <p class="text-sm text-slate/60 dark:text-gray-400 mb-6">Highly available EKS cluster with managed node groups, OIDC provider, and VPC CNI integration.</p>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">EKS Production Cluster</h3>
+                        <p class="text-sm text-slate-600 dark:text-gray-400 mb-6">Highly available EKS cluster with managed node groups, OIDC provider, and VPC CNI integration.</p>
                         <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="text-[10px] bg-slate/10 dark:bg-white/5 px-2 py-1 rounded">Kubernetes</span>
-                            <span class="text-[10px] bg-slate/10 dark:bg-white/5 px-2 py-1 rounded">Container</span>
-                            <span class="text-[10px] bg-slate/10 dark:bg-white/5 px-2 py-1 rounded">DevOps</span>
+                            <span class="text-[10px] bg-slate-100 dark:bg-white/5 px-2 py-1 rounded">Kubernetes</span>
+                            <span class="text-[10px] bg-slate-100 dark:bg-white/5 px-2 py-1 rounded">Container</span>
+                            <span class="text-[10px] bg-slate-100 dark:bg-white/5 px-2 py-1 rounded">DevOps</span>
                         </div>
-                        <a href="#" class="w-full py-3 bg-slate/5 dark:bg-white/5 rounded-xl text-center text-sm font-bold block hover:bg-secondary hover:text-white transition-all">View Details</a>
+                        <a href="#" class="w-full py-3 bg-slate-50 dark:bg-white/5 rounded-xl text-center text-sm font-bold block hover:bg-secondary hover:text-white transition-all mt-auto border border-slate-100 dark:border-transparent">View Details</a>
                     </div>
                     <!-- Monitoring Module -->
-                    <div class="glass p-8 rounded-3xl border border-white/10 hover-lift reveal delay-300">
+                    <div class="glass p-8 rounded-3xl border border-slate-200 dark:border-white/20 hover-lift reveal delay-300 flex flex-col">
                         <div class="flex justify-between items-start mb-6">
                             <div class="w-12 h-12 bg-cyan-500/10 text-cyan-500 rounded-xl flex items-center justify-center text-xl">
                                 <i class="fas fa-chart-line"></i>
                             </div>
                             <span class="text-[10px] font-bold bg-cyan-500/20 text-cyan-500 px-2 py-1 rounded uppercase">v1.2.0</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Observability Stack</h3>
-                        <p class="text-sm text-slate/60 dark:text-gray-400 mb-6">Pre-configured CloudWatch dashboards, Prometheus exporters, and Grafana data sources.</p>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Observability Stack</h3>
+                        <p class="text-sm text-slate-600 dark:text-gray-400 mb-6">Pre-configured CloudWatch dashboards, Prometheus exporters, and Grafana data sources.</p>
                         <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="text-[10px] bg-slate/10 dark:bg-white/5 px-2 py-1 rounded">Metrics</span>
-                            <span class="text-[10px] bg-slate/10 dark:bg-white/5 px-2 py-1 rounded">Logs</span>
-                            <span class="text-[10px] bg-slate/10 dark:bg-white/5 px-2 py-1 rounded">Monitoring</span>
+                            <span class="text-[10px] bg-slate-100 dark:bg-white/5 px-2 py-1 rounded">Metrics</span>
+                            <span class="text-[10px] bg-slate-100 dark:bg-white/5 px-2 py-1 rounded">Logs</span>
+                            <span class="text-[10px] bg-slate-100 dark:bg-white/5 px-2 py-1 rounded">Monitoring</span>
                         </div>
-                        <a href="#" class="w-full py-3 bg-slate/5 dark:bg-white/5 rounded-xl text-center text-sm font-bold block hover:bg-cyan-500 hover:text-white transition-all">View Details</a>
+                        <a href="#" class="w-full py-3 bg-slate-50 dark:bg-white/5 rounded-xl text-center text-sm font-bold block hover:bg-cyan-500 hover:text-white transition-all mt-auto border border-slate-100 dark:border-transparent">View Details</a>
                     </div>
                 </div>
             </div>
@@ -177,28 +187,28 @@
                     <p class="text-slate/60 dark:text-gray-400">Giving back to the community through official provider contributions and tools.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="p-6 bg-white dark:bg-dark rounded-2xl border border-white/10 shadow-sm reveal delay-100">
-                        <i class="fab fa-github text-2xl mb-4"></i>
-                        <h4 class="font-bold mb-2">AWS Provider</h4>
-                        <p class="text-xs opacity-60 mb-4">Fixed bug in RDS cluster parameter group tagging.</p>
+                    <div class="p-6 bg-white dark:bg-dark rounded-2xl border border-slate-200 dark:border-white/20 shadow-sm reveal delay-100 text-center">
+                        <i class="fab fa-aws text-2xl mb-4 text-[#FF9900]"></i>
+                        <h4 class="font-bold mb-2 text-slate-900 dark:text-white">AWS Provider</h4>
+                        <p class="text-xs text-slate-600 dark:text-gray-400 mb-4">Fixed bug in RDS cluster parameter group tagging.</p>
                         <span class="text-[10px] text-primary">#14253 Merged</span>
                     </div>
-                    <div class="p-6 bg-white dark:bg-dark rounded-2xl border border-white/10 shadow-sm reveal delay-200">
-                        <i class="fab fa-github text-2xl mb-4"></i>
-                        <h4 class="font-bold mb-2">Terraform Core</h4>
-                        <p class="text-xs opacity-60 mb-4">Improved state locking mechanisms for S3 backends.</p>
+                    <div class="p-6 bg-white dark:bg-dark rounded-2xl border border-slate-200 dark:border-white/20 shadow-sm reveal delay-200 text-center">
+                        <i class="fas fa-cube text-2xl mb-4 text-primary"></i>
+                        <h4 class="font-bold mb-2 text-slate-900 dark:text-white">Terraform Core</h4>
+                        <p class="text-xs text-slate-600 dark:text-gray-400 mb-4">Improved state locking mechanisms for S3 backends.</p>
                         <span class="text-[10px] text-primary">#9872 Merged</span>
                     </div>
-                    <div class="p-6 bg-white dark:bg-dark rounded-2xl border border-white/10 shadow-sm reveal delay-300">
-                        <i class="fab fa-github text-2xl mb-4"></i>
-                        <h4 class="font-bold mb-2">Helm Chart</h4>
-                        <p class="text-xs opacity-60 mb-4">Official Grafana chart security hardening contributor.</p>
+                    <div class="p-6 bg-white dark:bg-dark rounded-2xl border border-slate-200 dark:border-white/20 shadow-sm reveal delay-300 text-center">
+                        <i class="fas fa-anchor text-2xl mb-4 text-secondary"></i>
+                        <h4 class="font-bold mb-2 text-slate-900 dark:text-white">Helm Chart</h4>
+                        <p class="text-xs text-slate-600 dark:text-gray-400 mb-4">Official Grafana chart security hardening contributor.</p>
                         <span class="text-[10px] text-primary">#224 Merged</span>
                     </div>
-                    <div class="p-6 bg-white dark:bg-dark rounded-2xl border border-white/10 shadow-sm reveal delay-400">
-                        <i class="fab fa-github text-2xl mb-4"></i>
-                        <h4 class="font-bold mb-2">Pre-commit Hooks</h4>
-                        <p class="text-xs opacity-60 mb-4">Author of terraform-validate-tflint hook.</p>
+                    <div class="p-6 bg-white dark:bg-dark rounded-2xl border border-slate-200 dark:border-white/20 shadow-sm reveal delay-400 text-center">
+                        <i class="fas fa-check-double text-2xl mb-4 text-cyan-500"></i>
+                        <h4 class="font-bold mb-2 text-slate-900 dark:text-white">Pre-commit Hooks</h4>
+                        <p class="text-xs text-slate-600 dark:text-gray-400 mb-4">Author of terraform-validate-tflint hook.</p>
                         <span class="text-[10px] text-primary">v0.4.5 Published</span>
                     </div>
                 </div>
@@ -213,17 +223,17 @@
                         <h2 class="text-3xl font-bold mb-6">Modular by Design</h2>
                         <p class="text-lg text-slate/70 dark:text-gray-400 mb-8">Every module follows a strict hierarchy for maximum readability and maintenance.</p>
                         <div class="space-y-4">
-                            <div class="flex items-center gap-4 p-4 glass rounded-xl">
-                                <div class="w-10 h-10 bg-primary/20 text-primary rounded-lg flex items-center justify-center"><i class="fas fa-folder"></i></div>
-                                <div><h5 class="font-bold">Root Module</h5><p class="text-xs opacity-60">Variables, outputs, and provider config.</p></div>
+                            <div class="flex items-center gap-4 p-4 bg-white dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10">
+                                <div class="w-10 h-10 bg-primary/20 text-primary rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-folder"></i></div>
+                                <div><h5 class="font-bold text-slate-900 dark:text-white">Root Module</h5><p class="text-xs text-slate-600 dark:text-gray-400">Variables, outputs, and provider config.</p></div>
                             </div>
-                            <div class="flex items-center gap-4 p-4 glass rounded-xl ml-8 border-l-2 border-primary/20">
-                                <div class="w-10 h-10 bg-secondary/20 text-secondary rounded-lg flex items-center justify-center"><i class="fas fa-file-code"></i></div>
-                                <div><h5 class="font-bold">Resource definitions</h5><p class="text-xs opacity-60">Main infrastructure logic.</p></div>
+                            <div class="flex items-center gap-4 p-4 bg-white dark:bg-white/5 rounded-xl sm:ml-8 border border-slate-200 dark:border-white/10 border-l-4 border-l-primary/40">
+                                <div class="w-10 h-10 bg-secondary/20 text-secondary rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-file-code"></i></div>
+                                <div><h5 class="font-bold text-slate-900 dark:text-white">Resource definitions</h5><p class="text-xs text-slate-600 dark:text-gray-400">Main infrastructure logic.</p></div>
                             </div>
-                            <div class="flex items-center gap-4 p-4 glass rounded-xl ml-16 border-l-2 border-secondary/20">
-                                <div class="w-10 h-10 bg-cyan-500/20 text-cyan-500 rounded-lg flex items-center justify-center"><i class="fas fa-shield-alt"></i></div>
-                                <div><h5 class="font-bold">Policy as Code</h5><p class="text-xs opacity-60">Opa/Checkov validation files.</p></div>
+                            <div class="flex items-center gap-4 p-4 bg-white dark:bg-white/5 rounded-xl sm:ml-16 border border-slate-200 dark:border-white/10 border-l-4 border-l-secondary/40">
+                                <div class="w-10 h-10 bg-cyan-500/20 text-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-shield-alt"></i></div>
+                                <div><h5 class="font-bold text-slate-900 dark:text-white">Policy as Code</h5><p class="text-xs text-slate-600 dark:text-gray-400">Opa/Checkov validation files.</p></div>
                             </div>
                         </div>
                     </div>
@@ -262,7 +272,7 @@
                              <span>Resources: 22</span>
                          </div>
                     </div>
-                    <div class="p-10 prose prose-invert max-w-none">
+                    <div class="p-6 lg:p-10 prose prose-invert max-w-none">
                         <h2 class="text-primary font-bold text-2xl mb-6">AWS EKS Cluster Module</h2>
                         <p class="text-gray-400 mb-8">This module provisions a production-ready AWS EKS cluster with all necessary IAM roles, security groups, and networking configuration.</p>
                         
@@ -360,6 +370,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-lg hover:bg-primary/90 transition-all opacity-0 invisible z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="assets/js/main.js"></script>
 </body>

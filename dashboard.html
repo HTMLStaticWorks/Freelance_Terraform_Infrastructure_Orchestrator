@@ -29,50 +29,59 @@
     </style>
     <link rel="icon" type="image/png" href="assets/images/logo.png">
 </head>
-<body class="bg-white dark:bg-dark text-slate dark:text-gray-300 transition-colors duration-300">
+<body class="bg-white dark:bg-dark text-slate dark:text-gray-300 transition-colors duration-300 overflow-x-hidden">
 
     <div id="loader"><div class="loader-spinner"></div></div>
 
-    <!-- Top Settings (Floating) -->
-    <div class="fixed top-6 right-6 z-50 flex gap-4">
-        <button id="theme-toggle" class="w-12 h-12 flex items-center justify-center rounded-full glass bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all shadow-lg">
-            <i class="fas fa-moon dark:hidden text-lg"></i><i class="fas fa-sun hidden dark:inline text-lg"></i>
-        </button>
-        <button id="rtl-toggle" class="w-12 h-12 flex items-center justify-center rounded-full glass bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all text-[10px] font-bold uppercase shadow-lg">
-            RTL
-        </button>
+    <!-- Dashboard Mobile Header -->
+    <div class="lg:hidden fixed top-0 left-0 w-full bg-slate dark:bg-[#0b1121] z-50 px-6 py-4 flex justify-between items-center border-b border-white/10">
+        <div class="flex items-center gap-4">
+            <button id="mobile-menu-btn" class="text-primary text-2xl w-10 h-10 flex items-center justify-center rounded-full bg-white/5">
+                <i class="fas fa-bars"></i>
+            </button>
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="assets/images/logo.png" alt="TerraStack Logo" class="w-8 h-8">
+                <span class="text-lg font-bold text-white">Terra<span class="text-primary">Stack</span></span>
+            </a>
+        </div>
+        <!-- Right side empty or for profile if needed -->
     </div>
+
+    <!-- Desktop Floating Settings (Hidden, moved to profile bar) -->
 
     <div class="flex min-h-screen">
         <!-- Professional Sidebar -->
-        <aside class="hidden lg:flex flex-col w-64 bg-slate dark:bg-[#0b1121] border-r border-white/10 p-6 fixed h-full z-40">
-            <div class="mb-10">
+        <aside id="mobile-menu" class="hidden lg:flex flex-col w-full sm:w-64 bg-slate dark:bg-[#0b1121] border-r border-white/10 p-6 fixed lg:sticky top-0 h-screen z-50 transition-all duration-300">
+            <div class="flex justify-between items-center mb-10 lg:block">
                 <a href="index.html" class="flex items-center space-x-3">
                     <img src="assets/images/logo.png" alt="TerraStack Logo" class="w-10 h-10">
                     <span class="text-xl font-bold text-white tracking-tighter">Terra<span class="text-primary">Stack</span></span>
                 </a>
+                <button id="mobile-menu-close" class="lg:hidden text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
 
-            <nav class="flex-grow space-y-2">
+            <nav id="dashboard-nav" class="flex-grow space-y-2">
                 <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4 ml-2">Main Menu</p>
-                <a href="#overview" class="flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary rounded-xl font-bold text-sm">
+                <a href="#overview" class="nav-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
                     <i class="fas fa-th-large w-5"></i> Dashboard
                 </a>
-                <a href="#stats" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
+                <a href="#stats" class="nav-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
                     <i class="fas fa-cubes w-5"></i> Workspaces
                 </a>
-                <a href="#deployments" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
+                <a href="#deployments" class="nav-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
                     <i class="fas fa-box w-5"></i> TF Modules
                 </a>
-                <a href="#drift" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
+                <a href="#drift" class="nav-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
                     <i class="fas fa-cloud w-5"></i> Cloud Providers
                 </a>
-                <a href="#activity" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
+                <a href="#activity" class="nav-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
                     <i class="fas fa-book w-5"></i> Documentation
                 </a>
                 
                 <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-10 mb-4 ml-2">System</p>
-                <a href="#backend" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
+                <a href="#backend" class="nav-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
                     <i class="fas fa-cog w-5"></i> Settings
                 </a>
                 <a href="index.html" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-red-400 rounded-xl font-medium text-sm transition-all">
@@ -80,20 +89,30 @@
                 </a>
             </nav>
 
-            <div class="mt-auto p-4 bg-primary/5 rounded-2xl border border-primary/10">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
-                    <span class="text-[10px] font-bold text-secondary uppercase">API Connected</span>
+            <div class="mt-10 lg:mt-auto space-y-4">
+                <div class="lg:hidden flex items-center gap-4 p-2 bg-white/5 rounded-2xl border border-white/10">
+                    <button id="theme-toggle-mobile" class="flex-grow py-3 flex items-center justify-center rounded-xl bg-white/10 text-white hover:bg-white/20 transition-all">
+                        <i class="fas fa-moon dark:hidden mr-2"></i><i class="fas fa-sun hidden dark:inline mr-2"></i> Theme
+                    </button>
+                    <button id="rtl-toggle-mobile" class="flex-grow py-3 flex items-center justify-center rounded-xl bg-white/10 text-white hover:bg-white/20 transition-all text-xs font-bold uppercase">
+                        RTL
+                    </button>
                 </div>
-                <p class="text-[9px] text-gray-500">v2.4.0-stable | Region: EU-1</p>
+                <div class="p-4 bg-primary/5 rounded-2xl border border-primary/10">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+                        <span class="text-[10px] font-bold text-secondary uppercase">API Connected</span>
+                    </div>
+                    <p class="text-[9px] text-gray-500">v2.4.0-stable | Region: EU-1</p>
+                </div>
             </div>
         </aside>
 
         <!-- Main Workspace -->
-        <main class="flex-grow lg:ml-64 bg-white dark:bg-dark p-6 lg:p-10 transition-all duration-300">
+        <main class="flex-grow lg:ml-64 bg-white dark:bg-dark p-6 lg:p-8 pt-20 lg:pt-8 transition-all duration-300">
             
             <!-- Dashboard Top Bar -->
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-6">
                 <div>
                     <nav class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2">
                         <a href="index.html" class="hover:text-primary">Home</a>
@@ -104,11 +123,19 @@
                     <p class="text-sm text-gray-500 mt-1">Monitor, orchestrate, and secure your cloud infrastructure.</p>
                 </div>
                 
-                <div class="flex items-center gap-4 bg-slate/5 dark:bg-white/5 p-2 rounded-2xl border border-white/5">
-                    <div class="flex items-center gap-3 px-4 py-2 bg-dark dark:bg-slate/50 rounded-xl border border-white/10 shadow-inner">
-                        <img src="https://i.pravatar.cc/150?u=dev" class="w-8 h-8 rounded-full border border-primary/50">
+                <div class="flex items-center gap-3">
+                    <div class="hidden lg:flex items-center gap-2">
+                        <button id="theme-toggle-dash" class="w-12 h-12 flex items-center justify-center rounded-2xl bg-white dark:bg-slate/50 text-slate-900 dark:text-white border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/5 transition-all shadow-sm">
+                            <i class="fas fa-moon dark:hidden text-lg"></i><i class="fas fa-sun hidden dark:inline text-lg"></i>
+                        </button>
+                        <button id="rtl-toggle-dash" class="w-12 h-12 flex items-center justify-center rounded-2xl bg-white dark:bg-slate/50 text-slate-900 dark:text-white border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/5 transition-all text-[10px] font-bold uppercase shadow-sm">
+                            RTL
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-3 px-4 py-2 bg-white dark:bg-slate/50 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm">
+                        <img src="https://i.pravatar.cc/150?u=dev" class="w-10 h-10 rounded-full border border-primary/50">
                         <div>
-                            <p class="text-xs font-bold dark:text-white">DevOps User</p>
+                            <p class="text-sm font-bold text-slate-900 dark:text-white">DevOps User</p>
                             <p class="text-[10px] text-primary">Senior Architect</p>
                         </div>
                     </div>
@@ -116,7 +143,7 @@
             </div>
 
             <!-- 1. Stats Grid -->
-            <section id="stats" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 reveal">
+            <section id="stats" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 reveal">
                 <div class="p-6 glass rounded-2xl border border-white/10 relative overflow-hidden group">
                     <div class="relative z-10">
                         <div class="flex justify-between mb-4">
@@ -189,7 +216,7 @@
             </section>
 
             <!-- 2. Logs and Plans -->
-            <section id="deployments" class="grid lg:grid-cols-3 gap-8 mb-10 reveal delay-100">
+            <section id="deployments" class="grid lg:grid-cols-3 gap-8 mb-8 reveal delay-100">
                 <div class="lg:col-span-2 glass rounded-3xl border border-white/10 overflow-hidden flex flex-col shadow-xl shadow-black/20">
                     <div class="px-8 py-6 border-b border-white/10 flex justify-between items-center bg-white/5">
                         <div class="flex items-center gap-3">
@@ -279,7 +306,7 @@
             </section>
 
             <!-- 3. Drift and History -->
-            <section id="drift" class="grid lg:grid-cols-2 gap-8 mb-10 reveal delay-200">
+            <section id="drift" class="grid lg:grid-cols-2 gap-8 mb-8 reveal delay-200">
                 <div class="p-8 glass rounded-3xl border border-white/10 shadow-xl">
                     <div class="flex justify-between items-start mb-8">
                         <div class="flex items-center gap-4">
@@ -406,5 +433,43 @@
     </div>
 
     <script src="assets/js/main.js"></script>
+    <script>
+        // Additional Mobile Menu Close Logic for Dashboard
+        const closeBtn = document.getElementById('mobile-menu-close');
+        const mMenu = document.getElementById('mobile-menu');
+        if (closeBtn && mMenu) {
+            closeBtn.addEventListener('click', () => {
+                mMenu.classList.add('hidden');
+            });
+        }
+
+        // Active Menu Highlight Logic
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id], h1[id]');
+
+        const highlightNav = () => {
+            let scrollY = window.pageYOffset;
+            
+            sections.forEach(current => {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 150;
+                const sectionId = current.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('bg-primary/10', 'text-primary', 'font-bold');
+                        link.classList.add('text-gray-400', 'font-medium');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('bg-primary/10', 'text-primary', 'font-bold');
+                            link.classList.remove('text-gray-400', 'font-medium');
+                        }
+                    });
+                }
+            });
+        };
+
+        window.addEventListener('scroll', highlightNav);
+        highlightNav(); // Initial call
+    </script>
 </body>
 </html>

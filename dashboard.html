@@ -64,10 +64,10 @@
 
             <nav id="dashboard-nav" class="flex-grow space-y-2">
                 <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4 ml-2">Main Menu</p>
-                <a href="#overview" class="nav-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
+                <a href="#overview" class="nav-link flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary font-bold rounded-xl text-sm transition-all">
                     <i class="fas fa-th-large w-5"></i> Dashboard
                 </a>
-                <a href="#stats" class="nav-link flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary font-bold rounded-xl text-sm transition-all">
+                <a href="#stats" class="nav-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
                     <i class="fas fa-cubes w-5"></i> Workspaces
                 </a>
                 <a href="#deployments" class="nav-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
@@ -81,9 +81,6 @@
                 </a>
                 
                 <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-10 mb-4 ml-2">System</p>
-                <a href="#backend" class="nav-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium text-sm transition-all">
-                    <i class="fas fa-cog w-5"></i> Settings
-                </a>
                 <a href="index.html" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-red-400 rounded-xl font-medium text-sm transition-all">
                     <i class="fas fa-sign-out-alt w-5"></i> Logout
                 </a>
@@ -506,26 +503,30 @@
         // Click-based highlight with smooth scroll override
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault();
                 const targetId = link.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
                 
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 120,
-                        behavior: 'smooth'
-                    });
+                // If it's an internal link, handle it
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
                     
-                    // Manually set active state immediately for better response
-                    navLinks.forEach(l => {
-                        l.classList.remove('bg-primary/10', 'text-primary', 'font-bold');
-                        l.classList.add('text-gray-400', 'font-medium');
-                    });
-                    link.classList.add('bg-primary/10', 'text-primary', 'font-bold');
-                    link.classList.remove('text-gray-400', 'font-medium');
-                    
-                    // Update URL hash without jumping
-                    history.pushState(null, null, targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 120,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Manually set active state immediately
+                        navLinks.forEach(l => {
+                            l.classList.remove('bg-primary/10', 'text-primary', 'font-bold');
+                            l.classList.add('text-gray-400', 'font-medium');
+                        });
+                        link.classList.add('bg-primary/10', 'text-primary', 'font-bold');
+                        link.classList.remove('text-gray-400', 'font-medium');
+                        
+                        // Update URL hash
+                        history.pushState(null, null, targetId);
+                    }
                 }
 
                 // Close mobile menu if open

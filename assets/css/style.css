@@ -342,3 +342,41 @@ html:not(.dark) .dark-preview-container .text-gray-500 {
     display: none !important;
 }
 
+/* RTL spacing fix for space-x utilities */
+html[dir="rtl"] [class*="space-x-"] > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1 !important;
+}
+
+/* Ensure text contrast inside static dark sections in light mode */
+html:not(.dark) .bg-dark .text-gray-400 {
+    color: #cbd5e1 !important;
+}
+
+/* Ensure high contrast text inside dark preview containers in both modes */
+.dark-preview-container p,
+.dark-preview-container .text-gray-400 {
+    color: #cbd5e1 !important;
+}
+
+/* RTL Dashboard sidebar and main content layout fix */
+html[dir="rtl"] aside#mobile-menu {
+    left: auto !important;
+    right: 0 !important;
+    border-right-width: 0 !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+html[dir="rtl"] main.lg\:ml-64 {
+    margin-left: 0 !important;
+    margin-right: 16rem !important;
+}
+
+/* RTL Text Alignment helpers */
+html[dir="rtl"] [class*="text-left"] {
+    text-align: right !important;
+}
+
+html[dir="rtl"] [class*="text-right"] {
+    text-align: left !important;
+}
+

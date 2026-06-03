@@ -256,6 +256,19 @@ h1, h2, h3, h4, h5, h6 {
 .bg-slate\/5 { background-color: rgba(30, 41, 59, 0.05) !important; }
 .bg-slate\/10 { background-color: rgba(30, 41, 59, 0.1) !important; }
 .bg-slate\/20 { background-color: rgba(30, 41, 59, 0.2) !important; }
+.bg-slate\/30 { background-color: rgba(30, 41, 59, 0.3) !important; }
+.bg-slate\/40 { background-color: rgba(30, 41, 59, 0.4) !important; }
+.bg-slate\/50 { background-color: rgba(30, 41, 59, 0.5) !important; }
+
+/* Tailwind-style dark mode utilities for custom slate opacities */
+.dark .dark\:bg-slate\/5 { background-color: rgba(30, 41, 59, 0.05) !important; }
+.dark .dark\:bg-slate\/10 { background-color: rgba(30, 41, 59, 0.1) !important; }
+.dark .dark\:bg-slate\/20 { background-color: rgba(30, 41, 59, 0.2) !important; }
+.dark .dark\:bg-slate\/30 { background-color: rgba(30, 41, 59, 0.3) !important; }
+.dark .dark\:bg-slate\/40 { background-color: rgba(30, 41, 59, 0.4) !important; }
+.dark .dark\:bg-slate\/50 { background-color: rgba(30, 41, 59, 0.5) !important; }
+
+/* Keep legacy dark selector for compatibility */
 .dark .bg-slate\/30 { background-color: rgba(30, 41, 59, 0.3) !important; }
 
 .border-slate\/10 { border-color: rgba(30, 41, 59, 0.1) !important; }

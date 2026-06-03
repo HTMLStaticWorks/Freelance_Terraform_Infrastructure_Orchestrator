@@ -158,6 +158,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.3);
     z-index: 1;
     border: 2px solid transparent;
+    overflow: hidden;
 }
 
 .btn-premium::before {
@@ -284,5 +285,60 @@ html:not(.dark) .text-gray-500 {
 
 html:not(.dark) .text-gray-400 {
     color: #6b7280 !important;
+}
+
+/* Ensure text contrast inside dark preview containers in both modes */
+.dark-preview-container h3 {
+    color: #ffffff !important;
+}
+
+html:not(.dark) .dark-preview-container .text-gray-400 {
+    color: #9ca3af !important;
+}
+
+html:not(.dark) .dark-preview-container .text-gray-500 {
+    color: #6b7280 !important;
+}
+
+/* Mobile menu link colors for both light and dark mode */
+#mobile-menu a:not(.text-primary) {
+    color: #ffffff !important;
+}
+
+#mobile-menu a {
+    transition: color 0.2s ease-in-out;
+}
+
+#mobile-menu a:hover {
+    color: var(--primary) !important;
+}
+
+/* Get Global Scaling Strategy CTA visibility fix */
+.btn-premium.btn-scaling-cta {
+    background-color: var(--dark) !important;
+    color: #ffffff !important;
+}
+
+.dark .btn-premium.btn-scaling-cta {
+    background-color: #ffffff !important;
+    color: var(--dark) !important;
+}
+
+.btn-premium.btn-scaling-cta:hover {
+    background-color: var(--primary) !important;
+    color: #ffffff !important;
+}
+
+/* Theme Toggle Icon visibility fix */
+[id^="theme-toggle"] .fa-sun {
+    display: none !important;
+}
+
+.dark [id^="theme-toggle"] .fa-sun {
+    display: inline-block !important;
+}
+
+.dark [id^="theme-toggle"] .fa-moon {
+    display: none !important;
 }
 

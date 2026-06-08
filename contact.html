@@ -35,30 +35,28 @@
                 <span class="text-2xl font-bold text-dark dark:text-white tracking-tighter">Terra<span class="text-primary">Stack</span></span>
             </a>
 
-            <!-- Desktop Menu -->
+            <!-- Desktop Menu Links (Centered) -->
             <ul class="hidden lg:flex lg:space-x-3 xl:space-x-6 items-center font-medium lg:text-[11px] xl:text-sm">
                 <li><a href="index.html" class="hover:text-primary transition-colors">Home 1</a></li>
                 <li><a href="home-2.html" class="hover:text-primary transition-colors">Home 2</a></li>
                 <li><a href="about.html" class="hover:text-primary transition-colors">About</a></li>
-
                 <li><a href="modules.html" class="hover:text-primary transition-colors">Modules</a></li>
                 <li><a href="blog.html" class="hover:text-primary transition-colors">Blog</a></li>
                 <li><a href="contact.html" class="text-primary hover:text-primary transition-colors">Contact</a></li>
                 <li><a href="dashboard.html" class="hover:text-primary transition-colors">Dashboard</a></li>
-                <li>
-                    <button id="theme-toggle" class="w-12 h-12 flex items-center justify-center rounded-full bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all">
-                        <i class="fas fa-moon dark:hidden"></i>
-                        <i class="fas fa-sun hidden dark:inline"></i>
-                    </button>
-                </li>
-                <li>
-                    <button id="rtl-toggle" class="w-12 h-12 flex items-center justify-center rounded-full bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all text-[10px] font-bold uppercase">
-                        RTL
-                    </button>
-                </li>
-
-                <li><a href="signup.html" class="lg:px-3 xl:px-6 h-10 xl:h-12 flex items-center justify-center bg-primary text-white rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 font-bold">Sign Up</a></li>
             </ul>
+
+            <!-- Desktop Menu Actions (Right) -->
+            <div class="hidden lg:flex items-center space-x-3 xl:space-x-4">
+                <button id="theme-toggle" class="w-12 h-12 flex items-center justify-center rounded-full bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:inline"></i>
+                </button>
+                <button id="rtl-toggle" class="w-12 h-12 flex items-center justify-center rounded-full bg-slate/10 hover:bg-slate/20 dark:bg-white/10 dark:hover:bg-white/20 transition-all text-[10px] font-bold uppercase">
+                    RTL
+                </button>
+                <a href="signup.html" class="lg:px-3 xl:px-6 h-10 xl:h-12 flex items-center justify-center bg-primary text-white rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 font-bold">Sign Up</a>
+            </div>
 
             <!-- Mobile Menu Toggle -->
             <div class="flex items-center lg:hidden">
@@ -107,7 +105,7 @@
 
             <div class="container mx-auto px-6 relative z-10 text-center reveal">
                 <h1 class="text-4xl lg:text-7xl font-bold mb-6 text-white tracking-tight">Let's <span class="text-primary">Automate</span> Together</h1>
-                <p class="text-lg lg:text-xl text-slate-800 dark:text-slate-200 max-w-2xl mx-auto">Ready to scale your infrastructure? Reach out for a consultation and let's build something modular.</p>
+                <p class="text-lg lg:text-xl text-slate-200 max-w-2xl mx-auto">Ready to scale your infrastructure? Reach out for a consultation and let's build something modular.</p>
             </div>
         </section>
 

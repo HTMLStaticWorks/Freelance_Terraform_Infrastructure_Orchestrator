@@ -193,8 +193,8 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     background-color: transparent !important;
-    color: var(--primary) !important;
-    border: 2px solid var(--primary) !important;
+    color: var(--dark) !important;
+    border: 2px solid var(--dark) !important;
     font-weight: 700;
     border-radius: 0.75rem;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -202,6 +202,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-premium-outline:hover {
     background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
     color: #ffffff !important;
     transform: translateY(-3px) scale(1.02);
     box-shadow: 0 20px 30px -10px rgba(6, 182, 212, 0.3);
@@ -393,3 +394,26 @@ html[dir="rtl"] [class*="text-right"] {
     text-align: left !important;
 }
 
+/* Typography constraints for visual hierarchy and readability */
+h1, h2, h3, h4, h5, h6,
+h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
+    font-weight: 500 !important;
+}
+
+p, li, td, th, figcaption {
+    font-weight: 400 !important;
+}
+
+p strong, p b, p .font-bold, p .font-semibold,
+li strong, li b, li .font-bold, li .font-semibold,
+td strong, td b, td .font-bold, td .font-semibold,
+th strong, th b, th .font-bold, th .font-semibold,
+span.font-bold, span.font-semibold,
+.text-sm.font-bold, .text-sm.font-semibold,
+.text-xs.font-bold, .text-xs.font-semibold {
+    font-weight: 500 !important;
+}
+
+p .font-light, li .font-light, span.font-light {
+    font-weight: 400 !important;
+}
